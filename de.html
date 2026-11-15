@@ -1,26 +1,26 @@
 <!doctype html>
 <html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <script>/* German browsers get the German page, unless the reader picked a language before. Chrome often lists en-US first among the website languages even with a German UI; Intl follows the UI/OS locale */(function(){try{if(document.documentElement.lang!=='en'||localStorage.getItem('lang'))return;var l=(navigator.languages&&navigator.languages[0])||navigator.language||'',u='';try{u=Intl.DateTimeFormat().resolvedOptions().locale}catch(e){}if(/^de(-|$)/i.test(l)||/^de(-|$)/i.test(u))location.replace('de.html'+location.hash)}catch(e){}})()</script>
-<title>Giraffen-Benchmark</title>
+<title>GiraffeBench 1.0</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23e0a53a'/%3E%3Ccircle cx='11' cy='11' r='4' fill='%236d3a17'/%3E%3Ccircle cx='22' cy='14' r='3' fill='%236d3a17'/%3E%3Ccircle cx='14' cy='23' r='4' fill='%236d3a17'/%3E%3C/svg%3E">
 <link rel="alternate" hreflang="en" href="index.html"><link rel="alternate" hreflang="de" href="de.html">
 <meta name="description" content="239 Läufe lokaler und Cloud-Sprachmodelle mit derselben Three.js-Aufgabe: Modell, Quantisierung, Hardware, Tokens, Zeit und Kosten.">
-<meta property="og:type" content="website"><meta property="og:title" content="Giraffen-Benchmark"><meta property="og:description" content="239 Läufe lokaler und Cloud-Sprachmodelle mit derselben Three.js-Aufgabe: Modell, Quantisierung, Hardware, Tokens, Zeit und Kosten.">
+<meta property="og:type" content="website"><meta property="og:title" content="GiraffeBench 1.0"><meta property="og:description" content="239 Läufe lokaler und Cloud-Sprachmodelle mit derselben Three.js-Aufgabe: Modell, Quantisierung, Hardware, Tokens, Zeit und Kosten.">
 <meta property="og:image" content="https://keno303.github.io/lokale-giraffen/bilder/openai--gpt-6-astra-pi.jpg"><meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="site.css">
 </head><body>
 <header class="wrap">
 <div class="top">
 <a class="logo" href="https://www.youtube.com/ct3003" title="c't 3003 auf YouTube"><picture><source srcset="logo-dark.png" media="(prefers-color-scheme: dark)"><img src="logo-light.png" alt="c't 3003 auf YouTube" width="184" height="192"></picture></a>
-<div class="ttl"><p class="kicker">c't 3003</p><h1>Giraffen-Benchmark</h1></div>
+<div class="ttl"><p class="kicker">c't 3003</p><h1>GiraffeBench 1.0</h1></div>
 <nav class="lang" aria-label="Language"><a href="index.html" hreflang="en" lang="en">EN</a><a href="de.html" hreflang="de" lang="de" aria-current="page">DE</a></nav>
 <script>[].forEach.call(document.querySelectorAll('.lang a'),function(a){a.addEventListener('click',function(){try{localStorage.setItem('lang',a.hreflang)}catch(e){}})})</script>
 </div>
-<p class="lead">239 Läufe, jeweils mit den Harnesses pi und OpenCode: 58 Open-Weight-Modelle von 0,8 bis 748 Mrd. Parametern liefen auf eigener Hardware, 61 Modelle von Claude bis DeepSeek in der Cloud über OpenRouter. In 177 Läufen entstand eine Giraffe, die im Browser läuft.</p>
+<p class="lead">Was das Ganze soll: Die Qualität von lokalen und Cloud-LLMs anschaulich darstellen.</p>
 <div class="hero">
 <p class="prompt"><span>Der Prompt</span><q lang="en">Build a realistic, walking giraffe in Three.js. It must run by opening index.html directly, with no server or build step. Aim for 2 hours; you'll be stopped at 3.</q></p>
 </div></header>
-<div class="wrap"><nav class="tiles" aria-label="Weitere Seiten"><a class="tile" href="duell.html"><span class="tpics n2"><img src="bilder/openai--gpt-6.1-terra-oc.jpg" alt="" loading="lazy" width="800" height="413"><img src="bilder/google--gemini-4-carbon-pi.jpg" alt="" loading="lazy" width="800" height="413"></span><span class="ttxt"><b>Giraffen-Duell</b><span>Zwei laufende Giraffen, keine Namen. Du wählst die schönere, danach siehst du die Modelle.</span><span class="tcta">Abstimmen →</span></span></a><a class="tile" href="quant-vergleich.html"><span class="tpics n3"><img src="bilder/qwen3.8-27b--llama-cpp-pi.jpg" alt="" loading="lazy" width="800" height="413"><img src="bilder/qwen3.8-27b-ud-iq2xs-pi.jpg" alt="" loading="lazy" width="800" height="413"><img src="bilder/qwen3.8-27b-ud-q2kxl-pi.jpg" alt="" loading="lazy" width="800" height="413"></span><span class="ttxt"><b>Qwen3.8-27B: Quants im Vergleich</b><span>Dasselbe Modell in 19 Varianten, von voller Präzision bis unter 2 Bit pro Gewicht. Ab wann leidet die Giraffe?</span><span class="tcta">Zum Quant-Vergleich →</span></span></a></nav></div>
+<div class="wrap"><nav class="tiles" aria-label="Weitere Seiten"><a class="tile" href="duell.html"><span class="tpics n2"><img src="bilder/openai--gpt-6.1-terra-oc.jpg" alt="" loading="lazy" width="800" height="413"><img src="bilder/google--gemini-4-carbon-pi.jpg" alt="" loading="lazy" width="800" height="413"></span><span class="ttxt"><b>Giraffen-Duell</b><span>Ihr stimmt ab, daraus ergibt sich die Rangliste.</span><span class="tcta">Abstimmen →</span></span></a><a class="tile" href="quant-vergleich.html"><span class="tpics n3"><img src="bilder/qwen3.8-27b--llama-cpp-pi.jpg" alt="" loading="lazy" width="800" height="413"><img src="bilder/qwen3.8-27b-ud-iq2xs-pi.jpg" alt="" loading="lazy" width="800" height="413"><img src="bilder/qwen3.8-27b-ud-q2kxl-pi.jpg" alt="" loading="lazy" width="800" height="413"></span><span class="ttxt"><b>Qwen3.8-27B: Quants im Vergleich</b><span>Dasselbe Modell in 19 Varianten, von voller Präzision bis unter 2 Bit pro Gewicht. Ab wann leidet die Giraffe?</span><span class="tcta">Zum Quant-Vergleich →</span></span></a></nav></div>
 <div class="wrap allh"><h2>Alle Läufe durchsuchen</h2></div>
 <div class="bar"><div class="wrap" role="search">
 <div class="qwrap"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input type="search" id="q" placeholder="Suchen: Modell, Quantisierung, Notiz …" aria-label="Suchen"></div>
