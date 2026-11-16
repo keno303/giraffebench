@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Giraffa camelopardalis — Walking Giraffe</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<canvas id="scene"></canvas>
+
+<div id="ui">
+  <div id="title-block">
+    <h1>Giraffa camelopardalis</h1>
+    <p class="subtitle">Maasai giraffe &mdash; procedural walk cycle, pacing gait</p>
+  </div>
+
+  <div id="hint">
+    <span><b>Drag</b> orbit</span>
+    <span><b>Scroll</b> zoom</span>
+    <span><b>Space</b> pause</span>
+    <span><b>C</b> camera mode</span>
+  </div>
+
+  <div id="panel">
+    <button id="btn-pause" type="button" title="Pause / resume (Space)">⏸ Pause</button>
+    <button id="btn-camera" type="button" title="Toggle orbit / follow camera (C)">🎥 Orbit</button>
+    <label class="slider-row">
+      <span>Speed</span>
+      <input id="speed" type="range" min="0" max="2" step="0.05" value="1" />
+      <span id="speed-val">1.00×</span>
+    </label>
+  </div>
+
+  <div id="facts">
+    <div class="fact"><span class="k">Stride</span><span class="v">pacing gait, same-side legs move together</span></div>
+    <div class="fact"><span class="k">Neck</span><span class="v">7 cervical vertebrae, up to 2&nbsp;m long</span></div>
+    <div class="fact"><span class="k">Heart</span><span class="v">~11&nbsp;kg, ~280/170&nbsp;mmHg to feed the brain</span></div>
+    <div class="fact"><span class="k">Height</span><span class="v">up to 5.5&nbsp;m at the ossicones</span></div>
+  </div>
+
+  <div id="vignette"></div>
+</div>
+
+<script src="three.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

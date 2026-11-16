@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Giraffa camelopardalis — a walking giraffe</title>
+<style>
+  :root{
+    --ink:#f6f1e6;
+    --dim:rgba(246,241,230,.62);
+    --line:rgba(246,241,230,.22);
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0;background:#0d1117;overflow:hidden}
+  body{
+    font-family:"Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    user-select:none;
+    touch-action:none;
+  }
+  #scene{position:fixed;inset:0;width:100%;height:100%;display:block}
+  #vignette{
+    position:fixed;inset:0;pointer-events:none;z-index:1;
+    background:radial-gradient(ellipse 78% 72% at 50% 46%,
+      rgba(0,0,0,0) 42%, rgba(20,14,6,0.10) 72%, rgba(14,10,4,0.30) 100%);
+  }
+
+  /* ---------- title ---------- */
+  #title{
+    position:fixed;z-index:3;left:clamp(18px,3vw,42px);top:clamp(18px,3vw,38px);
+    pointer-events:none;
+    text-shadow:0 1px 18px rgba(0,0,0,.55), 0 1px 2px rgba(0,0,0,.45);
+  }
+  #title h1{
+    margin:0;
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+    font-weight:400;
+    font-size:clamp(20px,2.5vw,32px);
+    letter-spacing:.055em;
+    font-style:italic;
+  }
+  #title .rule{
+    width:46px;height:1px;background:var(--line);margin:11px 0 10px;
+  }
+  #title p{
+    margin:0;font-size:clamp(9px,1vw,11px);letter-spacing:.26em;
+    text-transform:uppercase;color:var(--dim);
+  }
+
+  /* ---------- bottom bar ---------- */
+  #bar{
+    position:fixed;z-index:3;left:50%;bottom:clamp(16px,3vw,30px);transform:translateX(-50%);
+    display:flex;align-items:center;gap:4px;
+    padding:5px;border-radius:999px;
+    background:rgba(18,20,22,.42);
+    border:1px solid rgba(255,255,255,.12);
+    backdrop-filter:blur(14px) saturate(120%);
+    -webkit-backdrop-filter:blur(14px) saturate(120%);
+    box-shadow:0 8px 30px rgba(0,0,0,.28);
+  }
+  #bar button{
+    appearance:none;border:0;background:transparent;color:var(--ink);
+    font:inherit;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+    padding:9px 15px;border-radius:999px;cursor:pointer;
+    opacity:.72;transition:opacity .18s,background .18s;
+  }
+  #bar button:hover{opacity:1;background:rgba(255,255,255,.08)}
+  #bar button.on{opacity:1;background:rgba(255,255,255,.14)}
+  #bar .sep{width:1px;height:18px;background:rgba(255,255,255,.14);margin:0 3px}
+
+  /* ---------- hint ---------- */
+  #hint{
+    position:fixed;z-index:3;left:50%;bottom:calc(clamp(16px,3vw,30px) + 62px);transform:translateX(-50%);
+    font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);
+    text-shadow:0 1px 10px rgba(0,0,0,.6);
+    transition:opacity 1.2s ease;white-space:nowrap;pointer-events:none;
+  }
+  #hint.gone{opacity:0}
+
+  /* ---------- loader ---------- */
+  #loader{
+    position:fixed;inset:0;display:grid;place-items:center;
+    background:#0d1117;z-index:10;
+    transition:opacity .8s ease;
+  }
+  #loader.gone{opacity:0;pointer-events:none}
+  #loader .ring{
+    width:34px;height:34px;border-radius:50%;
+    border:1.5px solid rgba(246,241,230,.16);
+    border-top-color:rgba(246,241,230,.85);
+    animation:spin 1.1s linear infinite;
+  }
+  @keyframes spin{to{transform:rotate(360deg)}}
+  #loader .txt{
+    position:absolute;top:calc(50% + 34px);
+    font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--dim);
+  }
+  #err{
+    position:fixed;inset:0;display:none;place-items:center;padding:40px;
+    background:#0d1117;z-index:20;text-align:center;
+  }
+  #err div{max-width:520px;line-height:1.6;font-size:14px;color:#e8c9a0}
+  @media (max-width:560px){
+    #bar button{padding:8px 11px;font-size:10px}
+    #title p{display:none}
+  }
+</style>
+</head>
+<body>
+<canvas id="scene"></canvas>
+<div id="vignette"></div>
+
+<div id="title">
+  <h1>Giraffa camelopardalis</h1>
+  <div class="rule"></div>
+  <p>Walking study &middot; real-time</p>
+</div>
+
+<div id="hint">drag to orbit &nbsp;&middot;&nbsp; scroll to zoom &nbsp;&middot;&nbsp; space to pause</div>
+
+<div id="bar">
+  <button id="btn-pause">Pause</button>
+  <div class="sep"></div>
+  <button id="btn-speed">Speed 1&times;</button>
+  <div class="sep"></div>
+  <button id="btn-view">Reset view</button>
+</div>
+
+<div id="loader"><div class="ring"></div><div class="txt">Waking the savanna</div></div>
+<div id="err"><div></div></div>
+
+<script src="vendor/three.min.js"></script>
+<script src="js/textures.js"></script>
+<script src="js/geom.js"></script>
+<script src="js/giraffe.js"></script>
+<script src="js/world.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

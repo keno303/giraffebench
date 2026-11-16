@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Procedural Walking Giraffe — Three.js</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      background: #0d1720;
+    }
+
+    #scene {
+      display: block;
+      width: 100vw;
+      height: 100vh;
+      touch-action: none;
+      outline: none;
+    }
+
+    .panel {
+      position: fixed;
+      top: 18px;
+      left: 18px;
+      width: min(330px, calc(100vw - 36px));
+      padding: 16px 18px 15px;
+      color: #fff7e8;
+      background: linear-gradient(145deg, rgba(20, 28, 31, .78), rgba(20, 28, 31, .52));
+      border: 1px solid rgba(255, 255, 255, .16);
+      border-radius: 18px;
+      box-shadow: 0 18px 50px rgba(0, 0, 0, .28);
+      backdrop-filter: blur(14px);
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .panel h1 {
+      margin: 0 0 5px;
+      font-size: 18px;
+      line-height: 1.15;
+      letter-spacing: .01em;
+    }
+
+    .panel p {
+      margin: 0 0 13px;
+      color: rgba(255, 247, 232, .76);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 9px 0;
+      pointer-events: auto;
+    }
+
+    label {
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      accent-color: #d99a43;
+    }
+
+    input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      accent-color: #d99a43;
+    }
+
+    button {
+      appearance: none;
+      border: 1px solid rgba(255, 255, 255, .18);
+      border-radius: 999px;
+      padding: 7px 11px;
+      color: #fff7e8;
+      background: rgba(255, 255, 255, .10);
+      font: inherit;
+      font-size: 12px;
+      cursor: pointer;
+      transition: transform .15s ease, background .15s ease;
+    }
+
+    button:hover { background: rgba(255, 255, 255, .18); }
+    button:active { transform: translateY(1px); }
+
+    .hint {
+      position: fixed;
+      right: 18px;
+      bottom: 16px;
+      padding: 9px 12px;
+      color: rgba(255, 255, 255, .78);
+      background: rgba(10, 18, 24, .48);
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: 999px;
+      font-size: 12px;
+      backdrop-filter: blur(10px);
+      pointer-events: none;
+      user-select: none;
+    }
+
+    #fallback {
+      position: fixed;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 30px;
+      color: white;
+      background: #17232b;
+      text-align: center;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    #fallback[hidden] { display: none; }
+
+    @media (max-width: 620px) {
+      .panel {
+        top: 10px;
+        left: 10px;
+        width: calc(100vw - 20px);
+        padding: 13px 14px;
+        border-radius: 14px;
+      }
+
+      .panel h1 { font-size: 16px; }
+      .hint { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="scene" aria-label="Interactive 3D scene of a procedurally modeled walking giraffe"></canvas>
+
+  <section class="panel" aria-label="Scene controls">
+    <h1>Walking Giraffe</h1>
+    <p>Fully procedural Three.js model with animated quadruped gait, coat spots, mane, tail, and savanna lighting.</p>
+
+    <div class="row">
+      <label for="speed">Walk speed</label>
+      <input id="speed" type="range" min="0.35" max="2" step="0.05" value="1" />
+    </div>
+
+    <div class="row">
+      <label for="follow">Follow camera</label>
+      <input id="follow" type="checkbox" checked />
+      <button id="reset" type="button">Reset view</button>
+      <button id="pause" type="button">Pause</button>
+    </div>
+  </section>
+
+  <div class="hint">Drag to orbit &nbsp;•&nbsp; Scroll to zoom &nbsp;•&nbsp; Shift-drag to pan</div>
+
+  <div id="fallback" hidden>
+    <div>
+      <strong>Could not load Three.js.</strong><br />
+      Please keep <code>index.html</code>, <code>main.js</code>, and <code>vendor/three.min.js</code> in the same folder.
+    </div>
+  </div>
+
+  <script src="./vendor/three.min.js"></script>
+  <script>
+    if (!window.THREE) {
+      document.getElementById('fallback').hidden = false;
+    }
+  </script>
+  <script src="./main.js"></script>
+</body>
+</html>

@@ -4,8 +4,8 @@
 <title>GiraffeBench 1.0</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23e0a53a'/%3E%3Ccircle cx='11' cy='11' r='4' fill='%236d3a17'/%3E%3Ccircle cx='22' cy='14' r='3' fill='%236d3a17'/%3E%3Ccircle cx='14' cy='23' r='4' fill='%236d3a17'/%3E%3C/svg%3E">
 <link rel="alternate" hreflang="en" href="index.html"><link rel="alternate" hreflang="de" href="de.html">
-<meta name="description" content="239 runs of local and cloud language models on the same Three.js task: model, quantization, hardware, tokens, time and cost.">
-<meta property="og:type" content="website"><meta property="og:title" content="GiraffeBench 1.0"><meta property="og:description" content="239 runs of local and cloud language models on the same Three.js task: model, quantization, hardware, tokens, time and cost.">
+<meta name="description" content="251 runs of local and cloud language models on the same Three.js task: model, quantization, hardware, tokens, time and cost.">
+<meta property="og:type" content="website"><meta property="og:title" content="GiraffeBench 1.0"><meta property="og:description" content="251 runs of local and cloud language models on the same Three.js task: model, quantization, hardware, tokens, time and cost.">
 <meta property="og:image" content="https://keno303.github.io/lokale-giraffen/bilder/openai--gpt-6-astra-pi.jpg"><meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="site.css">
 </head><body>
@@ -36,6 +36,62 @@
 <select id="ft" aria-label="Thinking"><option value="">Any thinking</option><option value="1">Thinking setting sent</option><option value="0">Model default</option></select>
 </div></div></div>
 <main class="wrap"><div class="grid" id="g">
+<article class="card" id="m-qwen--qwen4-max" data-date="2026-11-16" data-p="" data-act="" data-mem="" data-arch="" data-cloud="1"><div class="tabs" role="group"><button type="button" data-i="0" aria-pressed="true"><i class="dot ok"></i>pi</button><button type="button" data-i="1" aria-pressed="false"><i class="dot ok"></i>OpenCode</button></div>
+<div class="run" data-h="pi" data-ok="1" data-or="1" data-sent="0" data-sec="1516" data-tok="1411522" data-price="0.37137609" data-tps="26.361" data-s="qwen--qwen4-max qwen4 max qwen qwen/qwen4-max pi 1.5.0 cloud openrouter alibaba closed">
+<a class="shot" href="g/qwen--qwen4-max-pi/index.html" data-title="Qwen4 Max with pi 1.5.0"><img src="bilder/qwen--qwen4-max-pi.jpg" alt="Still of the giraffe by Qwen4 Max with pi 1.5.0" loading="lazy" width="800" height="413"><span>Run the giraffe</span></a><div class="body"><p class="tags"><span class="tag cw">Closed</span><span class="tag cl">Cloud</span></p>
+<h3>Qwen4 Max</h3><p class="sub">Qwen · OpenRouter</p><p class="date">Released November 16, 2026</p>
+<div class="kv"><div><span>Coding time</span><b>25 min</b></div><div><span>Speed (provider)</span><b>26.4 tok/s</b></div><div title="OpenRouter cost (real, via API)"><span>Cost (real, API)</span><b>$0.371</b></div></div>
+<details class="more"><summary>Details</summary><dl>
+<div><dt>Model on OpenRouter</dt><dd><a href="https://openrouter.ai/qwen/qwen4-max">qwen/qwen4-max</a></dd></div>
+<div><dt>Weights</dt><dd>Closed model, weights not published</dd></div>
+<div><dt>Released</dt><dd>November 16, 2026 <span class="muted">(date the model was added to OpenRouter)</span></dd></div>
+<div><dt>Hardware</dt><dd>Cloud via OpenRouter, served by Alibaba</dd></div>
+<div><dt>Harness</dt><dd>pi 1.5.0</dd></div>
+<div><dt>Thinking</dt><dd>Model default <span class="muted">(pi and OpenCode sent no thinking setting to OpenRouter, so the model default applied)</span><br>19,240 reasoning tokens billed</dd></div>
+<div><dt>Coding time</dt><dd>25 min, 39 requests</dd></div>
+<div><dt>Tokens</dt><dd>1,411,522 <span class="muted">(75,942 new input, 1,295,616 cached, 39,964 output)</span></dd></div>
+<div class="wide"><dt>OpenRouter cost (real, via API)</dt><dd>$0.371 <span class="muted">(list price per million tokens: $1.50 input, $0.075 cached, $4.50 output)</span></dd></div></dl></details></div></div><div class="run" data-h="oc" data-ok="1" data-or="1" data-sent="0" data-sec="1193" data-tok="2358792" data-price="0.54914740" data-tps="24.707" data-s="qwen--qwen4-max qwen4 max qwen qwen/qwen4-max opencode 2.2.5 cloud openrouter alibaba closed" hidden>
+<a class="shot" href="g/qwen--qwen4-max-oc/index.html" data-title="Qwen4 Max with OpenCode 2.2.5"><img src="bilder/qwen--qwen4-max-oc.jpg" alt="Still of the giraffe by Qwen4 Max with OpenCode 2.2.5" loading="lazy" width="800" height="413"><span>Run the giraffe</span></a><div class="body"><p class="tags"><span class="tag cw">Closed</span><span class="tag cl">Cloud</span></p>
+<h3>Qwen4 Max</h3><p class="sub">Qwen · OpenRouter</p><p class="date">Released November 16, 2026</p>
+<div class="kv"><div><span>Coding time</span><b>20 min</b></div><div><span>Speed (provider)</span><b>24.7 tok/s</b></div><div title="OpenRouter cost (real, via API)"><span>Cost (real, API)</span><b>$0.549</b></div></div>
+<details class="more"><summary>Details</summary><dl>
+<div><dt>Model on OpenRouter</dt><dd><a href="https://openrouter.ai/qwen/qwen4-max">qwen/qwen4-max</a></dd></div>
+<div><dt>Weights</dt><dd>Closed model, weights not published</dd></div>
+<div><dt>Released</dt><dd>November 16, 2026 <span class="muted">(date the model was added to OpenRouter)</span></dd></div>
+<div><dt>Hardware</dt><dd>Cloud via OpenRouter, served by Alibaba</dd></div>
+<div><dt>Harness</dt><dd>OpenCode 2.2.5</dd></div>
+<div><dt>Thinking</dt><dd>Model default <span class="muted">(pi and OpenCode sent no thinking setting to OpenRouter, so the model default applied)</span><br>28,161 reasoning tokens billed</dd></div>
+<div><dt>Coding time</dt><dd>20 min, 49 requests</dd></div>
+<div><dt>Tokens</dt><dd>2,358,792 <span class="muted">(100,580 new input, 2,228,736 cached, 29,476 output)</span></dd></div>
+<div class="wide"><dt>OpenRouter cost (real, via API)</dt><dd>$0.549 <span class="muted">(list price per million tokens: $1.50 input, $0.075 cached, $4.50 output)</span></dd></div></dl></details></div></div></article>
+<article class="card" id="m-inclusionai--ling-3.2-flash_free" data-date="2026-11-13" data-p="" data-act="" data-mem="" data-arch="" data-cloud="1"><div class="tabs" role="group"><button type="button" data-i="0" aria-pressed="true"><i class="dot ok"></i>pi</button><button type="button" data-i="1" aria-pressed="false"><i class="dot ok"></i>OpenCode</button></div>
+<div class="run" data-h="pi" data-ok="1" data-or="1" data-sent="0" data-sec="6507" data-tok="4042895" data-price="0.00000000" data-tps="12.766" data-s="inclusionai--ling-3.2-flash_free ling 3.2 flash inclusionai inclusionai/ling-3.2-flash:free pi 1.5.0 cloud openrouter ant digital open weights openrouter offers this model only as a free variant, so the run cost nothing. by request this run had no time limit, because the first attempt got stuck at the overloaded free provider. it took 1:48 hours, so it stayed under the usual 3-hour limit anyway. at the start the camera looks down closely at the back; zoom out to see the whole giraffe.">
+<a class="shot" href="g/inclusionai--ling-3.2-flash_free-pi/index.html" data-title="Ling 3.2 Flash with pi 1.5.0"><img src="bilder/inclusionai--ling-3.2-flash_free-pi.jpg" alt="Still of the giraffe by Ling 3.2 Flash with pi 1.5.0" loading="lazy" width="800" height="413"><span>Run the giraffe</span></a><div class="body"><p class="tags"><span class="tag ow">Open Weights</span><span class="tag cl">Cloud</span></p>
+<h3>Ling 3.2 Flash</h3><p class="sub">inclusionAI · OpenRouter</p><p class="date">Released November 13, 2026</p>
+<div class="kv"><div><span>Coding time</span><b>1.8 h</b></div><div><span>Speed (provider)</span><b>12.8 tok/s</b></div><div title="OpenRouter cost (real, via API)"><span>Cost (real, API)</span><b>$0</b></div></div>
+<p class="note">OpenRouter offers this model only as a free variant, so the run cost nothing. By request this run had no time limit, because the first attempt got stuck at the overloaded free provider. It took 1:48 hours, so it stayed under the usual 3-hour limit anyway. At the start the camera looks down closely at the back; zoom out to see the whole giraffe.</p><details class="more"><summary>Details</summary><dl>
+<div><dt>Model on OpenRouter</dt><dd><a href="https://openrouter.ai/inclusionai/ling-3.2-flash:free">inclusionai/ling-3.2-flash:free</a></dd></div>
+<div><dt>Weights</dt><dd><a href="https://huggingface.co/inclusionAI/Ling-3.2-flash">inclusionAI/Ling-3.2-flash</a></dd></div>
+<div><dt>Released</dt><dd>November 13, 2026 <span class="muted">(date the model was added to OpenRouter)</span></dd></div>
+<div><dt>Hardware</dt><dd>Cloud via OpenRouter, served by Ant Digital</dd></div>
+<div><dt>Harness</dt><dd>pi 1.5.0</dd></div>
+<div><dt>Thinking</dt><dd>Model default <span class="muted">(pi and OpenCode sent no thinking setting to OpenRouter, so the model default applied)</span><br>no reasoning tokens billed</dd></div>
+<div><dt>Coding time</dt><dd>1.8 h, 83 requests</dd></div>
+<div><dt>Tokens</dt><dd>4,042,895 <span class="muted">(1,668,946 new input, 2,290,880 cached, 83,069 output)</span></dd></div>
+<div class="wide"><dt>OpenRouter cost (real, via API)</dt><dd>$0 <span class="muted">(list price per million tokens: $0 input, $0 cached, $0 output)</span></dd></div></dl></details></div></div><div class="run" data-h="oc" data-ok="1" data-or="1" data-sent="0" data-sec="4243" data-tok="1619299" data-price="0.00000000" data-tps="3.558" data-s="inclusionai--ling-3.2-flash_free ling 3.2 flash inclusionai inclusionai/ling-3.2-flash:free opencode 2.2.5 cloud openrouter ant digital open weights openrouter offers this model only as a free variant, so the run cost nothing." hidden>
+<a class="shot" href="g/inclusionai--ling-3.2-flash_free-oc/index.html" data-title="Ling 3.2 Flash with OpenCode 2.2.5"><img src="bilder/inclusionai--ling-3.2-flash_free-oc.jpg" alt="Still of the giraffe by Ling 3.2 Flash with OpenCode 2.2.5" loading="lazy" width="800" height="413"><span>Run the giraffe</span></a><div class="body"><p class="tags"><span class="tag ow">Open Weights</span><span class="tag cl">Cloud</span></p>
+<h3>Ling 3.2 Flash</h3><p class="sub">inclusionAI · OpenRouter</p><p class="date">Released November 13, 2026</p>
+<div class="kv"><div><span>Coding time</span><b>71 min</b></div><div><span>Speed (provider)</span><b>3.6 tok/s</b></div><div title="OpenRouter cost (real, via API)"><span>Cost (real, API)</span><b>$0</b></div></div>
+<p class="note">OpenRouter offers this model only as a free variant, so the run cost nothing.</p><details class="more"><summary>Details</summary><dl>
+<div><dt>Model on OpenRouter</dt><dd><a href="https://openrouter.ai/inclusionai/ling-3.2-flash:free">inclusionai/ling-3.2-flash:free</a></dd></div>
+<div><dt>Weights</dt><dd><a href="https://huggingface.co/inclusionAI/Ling-3.2-flash">inclusionAI/Ling-3.2-flash</a></dd></div>
+<div><dt>Released</dt><dd>November 13, 2026 <span class="muted">(date the model was added to OpenRouter)</span></dd></div>
+<div><dt>Hardware</dt><dd>Cloud via OpenRouter, served by Ant Digital</dd></div>
+<div><dt>Harness</dt><dd>OpenCode 2.2.5</dd></div>
+<div><dt>Thinking</dt><dd>Model default <span class="muted">(pi and OpenCode sent no thinking setting to OpenRouter, so the model default applied)</span><br>38,190 reasoning tokens billed</dd></div>
+<div><dt>Coding time</dt><dd>71 min, 33 requests</dd></div>
+<div><dt>Tokens</dt><dd>1,619,299 <span class="muted">(609,962 new input, 994,240 cached, 15,097 output)</span></dd></div>
+<div class="wide"><dt>OpenRouter cost (real, via API)</dt><dd>$0 <span class="muted">(list price per million tokens: $0 input, $0 cached, $0 output)</span></dd></div></dl></details></div></div></article>
 <article class="card" id="m-google--gemini-4-hydrogen" data-date="2026-11-12" data-p="" data-act="" data-mem="" data-arch="" data-cloud="1"><div class="tabs" role="group"><button type="button" data-i="0" aria-pressed="true"><i class="dot ok"></i>pi</button><button type="button" data-i="1" aria-pressed="false"><i class="dot ok"></i>OpenCode</button></div>
 <div class="run" data-h="pi" data-ok="1" data-or="1" data-sent="0" data-sec="1559" data-tok="7710154" data-price="1.92079373" data-tps="83.936" data-s="google--gemini-4-hydrogen gemini 4 hydrogen google google/gemini-4-hydrogen pi 1.5.0 cloud openrouter google closed">
 <a class="shot" href="g/google--gemini-4-hydrogen-pi/index.html" data-title="Gemini 4 Hydrogen with pi 1.5.0"><img src="bilder/google--gemini-4-hydrogen-pi.jpg" alt="Still of the giraffe by Gemini 4 Hydrogen with pi 1.5.0" loading="lazy" width="800" height="413"><span>Run the giraffe</span></a><div class="body"><p class="tags"><span class="tag cw">Closed</span><span class="tag cl">Cloud</span></p>
@@ -64,6 +120,34 @@
 <div><dt>Coding time</dt><dd>21 min, 57 requests</dd></div>
 <div><dt>Tokens</dt><dd>5,422,610 <span class="muted">(378,952 new input, 4,960,545 cached, 83,113 output)</span></dd></div>
 <div class="wide"><dt>OpenRouter cost (real, via API)</dt><dd>$1.85 <span class="muted">(list price per million tokens: $1.50 input, $0.075 cached, $7.50 output)</span></dd></div></dl></details></div></div></article>
+<article class="card" id="m-nex-agi--nex-n2.6" data-date="2026-11-10" data-p="" data-act="" data-mem="" data-arch="" data-cloud="1"><div class="tabs" role="group"><button type="button" data-i="0" aria-pressed="true"><i class="dot ok"></i>pi</button><button type="button" data-i="1" aria-pressed="false"><i class="dot ok"></i>OpenCode</button></div>
+<div class="run" data-h="pi" data-ok="1" data-or="1" data-sent="0" data-sec="945" data-tok="2676643" data-price="0.10408874" data-tps="59.149" data-s="nex-agi--nex-n2.6 nex-n2.6 nex agi nex-agi/nex-n2.6 pi 1.5.0 cloud openrouter nex agi open weights">
+<a class="shot" href="g/nex-agi--nex-n2.6-pi/index.html" data-title="Nex-N2.6 with pi 1.5.0"><img src="bilder/nex-agi--nex-n2.6-pi.jpg" alt="Still of the giraffe by Nex-N2.6 with pi 1.5.0" loading="lazy" width="800" height="413"><span>Run the giraffe</span></a><div class="body"><p class="tags"><span class="tag ow">Open Weights</span><span class="tag cl">Cloud</span></p>
+<h3>Nex-N2.6</h3><p class="sub">Nex AGI · OpenRouter</p><p class="date">Released November 10, 2026</p>
+<div class="kv"><div><span>Coding time</span><b>16 min</b></div><div><span>Speed (provider)</span><b>59.1 tok/s</b></div><div title="OpenRouter cost (real, via API)"><span>Cost (real, API)</span><b>$0.104</b></div></div>
+<details class="more"><summary>Details</summary><dl>
+<div><dt>Model on OpenRouter</dt><dd><a href="https://openrouter.ai/nex-agi/nex-n2.6">nex-agi/nex-n2.6</a></dd></div>
+<div><dt>Weights</dt><dd><a href="https://huggingface.co/nex-agi/Nex-N2.6">nex-agi/Nex-N2.6</a></dd></div>
+<div><dt>Released</dt><dd>November 10, 2026 <span class="muted">(date the model was added to OpenRouter)</span></dd></div>
+<div><dt>Hardware</dt><dd>Cloud via OpenRouter, served by Nex AGI</dd></div>
+<div><dt>Harness</dt><dd>pi 1.5.0</dd></div>
+<div><dt>Thinking</dt><dd>Model default <span class="muted">(pi and OpenCode sent no thinking setting to OpenRouter, so the model default applied)</span><br>32,680 reasoning tokens billed</dd></div>
+<div><dt>Coding time</dt><dd>16 min, 55 requests</dd></div>
+<div><dt>Tokens</dt><dd>2,676,643 <span class="muted">(196,171 new input, 2,424,576 cached, 55,896 output)</span></dd></div>
+<div class="wide"><dt>OpenRouter cost (real, via API)</dt><dd>$0.104 <span class="muted">(list price per million tokens: $0.120 input, $0.024 cached, $0.400 output)</span></dd></div></dl></details></div></div><div class="run" data-h="oc" data-ok="1" data-or="1" data-sent="0" data-sec="306" data-tok="140003" data-price="0.01855246" data-tps="27.824" data-s="nex-agi--nex-n2.6 nex-n2.6 nex agi nex-agi/nex-n2.6 opencode 2.2.5 cloud openrouter nex agi open weights" hidden>
+<a class="shot" href="g/nex-agi--nex-n2.6-oc/index.html" data-title="Nex-N2.6 with OpenCode 2.2.5"><img src="bilder/nex-agi--nex-n2.6-oc.jpg" alt="Still of the giraffe by Nex-N2.6 with OpenCode 2.2.5" loading="lazy" width="800" height="413"><span>Run the giraffe</span></a><div class="body"><p class="tags"><span class="tag ow">Open Weights</span><span class="tag cl">Cloud</span></p>
+<h3>Nex-N2.6</h3><p class="sub">Nex AGI · OpenRouter</p><p class="date">Released November 10, 2026</p>
+<div class="kv"><div><span>Coding time</span><b>5 min</b></div><div><span>Speed (provider)</span><b>27.8 tok/s</b></div><div title="OpenRouter cost (real, via API)"><span>Cost (real, API)</span><b>$0.019</b></div></div>
+<details class="more"><summary>Details</summary><dl>
+<div><dt>Model on OpenRouter</dt><dd><a href="https://openrouter.ai/nex-agi/nex-n2.6">nex-agi/nex-n2.6</a></dd></div>
+<div><dt>Weights</dt><dd><a href="https://huggingface.co/nex-agi/Nex-N2.6">nex-agi/Nex-N2.6</a></dd></div>
+<div><dt>Released</dt><dd>November 10, 2026 <span class="muted">(date the model was added to OpenRouter)</span></dd></div>
+<div><dt>Hardware</dt><dd>Cloud via OpenRouter, served by Nex AGI</dd></div>
+<div><dt>Harness</dt><dd>OpenCode 2.2.5</dd></div>
+<div><dt>Thinking</dt><dd>Model default <span class="muted">(pi and OpenCode sent no thinking setting to OpenRouter, so the model default applied)</span><br>23,027 reasoning tokens billed</dd></div>
+<div><dt>Coding time</dt><dd>5 min, 5 requests</dd></div>
+<div><dt>Tokens</dt><dd>140,003 <span class="muted">(27,553 new input, 103,936 cached, 8,514 output)</span></dd></div>
+<div class="wide"><dt>OpenRouter cost (real, via API)</dt><dd>$0.019 <span class="muted">(list price per million tokens: $0.120 input, $0.024 cached, $0.400 output)</span></dd></div></dl></details></div></div></article>
 <article class="card" id="m-google--gemini-4-carbon" data-date="2026-11-10" data-p="" data-act="" data-mem="" data-arch="" data-cloud="1"><div class="tabs" role="group"><button type="button" data-i="0" aria-pressed="true"><i class="dot ok"></i>pi</button><button type="button" data-i="1" aria-pressed="false"><i class="dot ok"></i>OpenCode</button></div>
 <div class="run" data-h="pi" data-ok="1" data-or="1" data-sent="0" data-sec="6550" data-tok="16126578" data-price="7.47547170" data-tps="29.503" data-s="google--gemini-4-carbon gemini 4 carbon google google/gemini-4-carbon pi 1.5.0 cloud openrouter google closed">
 <a class="shot" href="g/google--gemini-4-carbon-pi/index.html" data-title="Gemini 4 Carbon with pi 1.5.0"><img src="bilder/google--gemini-4-carbon-pi.jpg" alt="Still of the giraffe by Gemini 4 Carbon with pi 1.5.0" loading="lazy" width="800" height="413"><span>Run the giraffe</span></a><div class="body"><p class="tags"><span class="tag cw">Closed</span><span class="tag cl">Cloud</span></p>
@@ -92,6 +176,90 @@
 <div><dt>Coding time</dt><dd>82 min, 77 requests</dd></div>
 <div><dt>Tokens</dt><dd>12,068,796 <span class="muted">(487,234 new input, 11,447,955 cached, 133,607 output)</span></dd></div>
 <div class="wide"><dt>OpenRouter cost (real, via API)</dt><dd>$4.02 <span class="muted">(list price per million tokens: $2.00 input, $0.100 cached, $10.00 output)</span></dd></div></dl></details></div></div></article>
+<article class="card" id="m-baidu--ernie-light-dt-1.0-intl" data-date="2026-11-10" data-p="" data-act="" data-mem="" data-arch="" data-cloud="1"><div class="tabs" role="group"><button type="button" data-i="0" aria-pressed="true"><i class="dot ok"></i>pi</button><button type="button" data-i="1" aria-pressed="false"><i class="dot ok"></i>OpenCode</button></div>
+<div class="run" data-h="pi" data-ok="1" data-or="1" data-sent="0" data-sec="2752" data-tok="13689626" data-price="2.57962904" data-tps="72.887" data-s="baidu--ernie-light-dt-1.0-intl ernie-light-dt-1.0 baidu baidu/ernie-light-dt-1.0-intl pi 1.5.0 cloud openrouter baidu closed second try: the first ended without a page. time, tokens and cost cover both tries.">
+<a class="shot" href="g/baidu--ernie-light-dt-1.0-intl-pi/index.html" data-title="ERNIE-Light-DT-1.0 with pi 1.5.0"><img src="bilder/baidu--ernie-light-dt-1.0-intl-pi.jpg" alt="Still of the giraffe by ERNIE-Light-DT-1.0 with pi 1.5.0" loading="lazy" width="800" height="413"><span>Run the giraffe</span></a><div class="body"><p class="tags"><span class="tag cw">Closed</span><span class="tag cl">Cloud</span></p>
+<h3>ERNIE-Light-DT-1.0</h3><p class="sub">Baidu · OpenRouter</p><p class="date">Released November 10, 2026</p>
+<div class="kv"><div><span>Coding time</span><b>46 min</b></div><div><span>Speed (provider)</span><b>72.9 tok/s</b></div><div title="OpenRouter cost (real, via API)"><span>Cost (real, API)</span><b>$2.58</b></div></div>
+<p class="note">Second try: the first ended without a page. Time, tokens and cost cover both tries.</p><details class="more"><summary>Details</summary><dl>
+<div><dt>Model on OpenRouter</dt><dd><a href="https://openrouter.ai/baidu/ernie-light-dt-1.0-intl">baidu/ernie-light-dt-1.0-intl</a></dd></div>
+<div><dt>Weights</dt><dd>Closed model, weights not published</dd></div>
+<div><dt>Released</dt><dd>November 10, 2026 <span class="muted">(date the model was added to OpenRouter)</span></dd></div>
+<div><dt>Hardware</dt><dd>Cloud via OpenRouter, served by Baidu</dd></div>
+<div><dt>Harness</dt><dd>pi 1.5.0</dd></div>
+<div><dt>Thinking</dt><dd>Model default <span class="muted">(pi and OpenCode sent no thinking setting to OpenRouter, so the model default applied)</span><br>145,116 reasoning tokens billed</dd></div>
+<div><dt>Coding time</dt><dd>46 min, 98 requests</dd></div>
+<div><dt>Tokens</dt><dd>13,689,626 <span class="muted">(260,628 new input, 13,228,412 cached, 200,586 output)</span></dd></div>
+<div class="wide"><dt>OpenRouter cost (real, via API)</dt><dd>$2.58 <span class="muted">(list price per million tokens: $1.13 input, $0.113 cached, $3.94 output)</span></dd></div></dl></details></div></div><div class="run" data-h="oc" data-ok="1" data-or="1" data-sent="0" data-sec="3170" data-tok="23620033" data-price="3.91232974" data-tps="20.023" data-s="baidu--ernie-light-dt-1.0-intl ernie-light-dt-1.0 baidu baidu/ernie-light-dt-1.0-intl opencode 2.2.5 cloud openrouter baidu closed" hidden>
+<a class="shot" href="g/baidu--ernie-light-dt-1.0-intl-oc/index.html" data-title="ERNIE-Light-DT-1.0 with OpenCode 2.2.5"><img src="bilder/baidu--ernie-light-dt-1.0-intl-oc.jpg" alt="Still of the giraffe by ERNIE-Light-DT-1.0 with OpenCode 2.2.5" loading="lazy" width="800" height="413"><span>Run the giraffe</span></a><div class="body"><p class="tags"><span class="tag cw">Closed</span><span class="tag cl">Cloud</span></p>
+<h3>ERNIE-Light-DT-1.0</h3><p class="sub">Baidu · OpenRouter</p><p class="date">Released November 10, 2026</p>
+<div class="kv"><div><span>Coding time</span><b>53 min</b></div><div><span>Speed (provider)</span><b>20.0 tok/s</b></div><div title="OpenRouter cost (real, via API)"><span>Cost (real, API)</span><b>$3.91</b></div></div>
+<details class="more"><summary>Details</summary><dl>
+<div><dt>Model on OpenRouter</dt><dd><a href="https://openrouter.ai/baidu/ernie-light-dt-1.0-intl">baidu/ernie-light-dt-1.0-intl</a></dd></div>
+<div><dt>Weights</dt><dd>Closed model, weights not published</dd></div>
+<div><dt>Released</dt><dd>November 10, 2026 <span class="muted">(date the model was added to OpenRouter)</span></dd></div>
+<div><dt>Hardware</dt><dd>Cloud via OpenRouter, served by Baidu</dd></div>
+<div><dt>Harness</dt><dd>OpenCode 2.2.5</dd></div>
+<div><dt>Thinking</dt><dd>Model default <span class="muted">(pi and OpenCode sent no thinking setting to OpenRouter, so the model default applied)</span><br>172,289 reasoning tokens billed</dd></div>
+<div><dt>Coding time</dt><dd>53 min, 118 requests</dd></div>
+<div><dt>Tokens</dt><dd>23,620,033 <span class="muted">(315,556 new input, 23,241,004 cached, 63,473 output)</span></dd></div>
+<div class="wide"><dt>OpenRouter cost (real, via API)</dt><dd>$3.91 <span class="muted">(list price per million tokens: $1.13 input, $0.113 cached, $3.94 output)</span></dd></div></dl></details></div></div></article>
+<article class="card" id="m-baidu--ernie-5.5-flash-preview_free" data-date="2026-11-10" data-p="" data-act="" data-mem="" data-arch="" data-cloud="1"><div class="tabs" role="group"><button type="button" data-i="0" aria-pressed="true"><i class="dot ok"></i>pi</button><button type="button" data-i="1" aria-pressed="false"><i class="dot ok"></i>OpenCode</button></div>
+<div class="run" data-h="pi" data-ok="1" data-or="1" data-sent="0" data-sec="1157" data-tok="10112657" data-price="0.00000000" data-tps="152.704" data-s="baidu--ernie-5.5-flash-preview_free ernie-5.5-flash-preview baidu baidu/ernie-5.5-flash-preview:free pi 1.5.0 cloud openrouter baidu open weights openrouter offers this model only as a free variant, so the run cost nothing.">
+<a class="shot" href="g/baidu--ernie-5.5-flash-preview_free-pi/index.html" data-title="ERNIE-5.5-Flash-Preview with pi 1.5.0"><img src="bilder/baidu--ernie-5.5-flash-preview_free-pi.jpg" alt="Still of the giraffe by ERNIE-5.5-Flash-Preview with pi 1.5.0" loading="lazy" width="800" height="413"><span>Run the giraffe</span></a><div class="body"><p class="tags"><span class="tag ow">Open Weights</span><span class="tag cl">Cloud</span></p>
+<h3>ERNIE-5.5-Flash-Preview</h3><p class="sub">Baidu · OpenRouter</p><p class="date">Released November 10, 2026</p>
+<div class="kv"><div><span>Coding time</span><b>19 min</b></div><div><span>Speed (provider)</span><b>153 tok/s</b></div><div title="OpenRouter cost (real, via API)"><span>Cost (real, API)</span><b>$0</b></div></div>
+<p class="note">OpenRouter offers this model only as a free variant, so the run cost nothing.</p><details class="more"><summary>Details</summary><dl>
+<div><dt>Model on OpenRouter</dt><dd><a href="https://openrouter.ai/baidu/ernie-5.5-flash-preview:free">baidu/ernie-5.5-flash-preview:free</a></dd></div>
+<div><dt>Weights</dt><dd><a href="https://huggingface.co/baidu/ERNIE-5.5-Flash-Preview">baidu/ERNIE-5.5-Flash-Preview</a></dd></div>
+<div><dt>Released</dt><dd>November 10, 2026 <span class="muted">(date the model was added to OpenRouter)</span></dd></div>
+<div><dt>Hardware</dt><dd>Cloud via OpenRouter, served by Baidu</dd></div>
+<div><dt>Harness</dt><dd>pi 1.5.0</dd></div>
+<div><dt>Thinking</dt><dd>Model default <span class="muted">(pi and OpenCode sent no thinking setting to OpenRouter, so the model default applied)</span><br>128,439 reasoning tokens billed</dd></div>
+<div><dt>Coding time</dt><dd>19 min, 89 requests</dd></div>
+<div><dt>Tokens</dt><dd>10,112,657 <span class="muted">(215,403 new input, 9,720,576 cached, 176,678 output)</span></dd></div>
+<div class="wide"><dt>OpenRouter cost (real, via API)</dt><dd>$0 <span class="muted">(list price per million tokens: $0 input, $0 cached, $0 output)</span></dd></div></dl></details></div></div><div class="run" data-h="oc" data-ok="1" data-or="1" data-sent="0" data-sec="1812" data-tok="22030117" data-price="0.00000000" data-tps="37.794" data-s="baidu--ernie-5.5-flash-preview_free ernie-5.5-flash-preview baidu baidu/ernie-5.5-flash-preview:free opencode 2.2.5 cloud openrouter baidu open weights openrouter offers this model only as a free variant, so the run cost nothing." hidden>
+<a class="shot" href="g/baidu--ernie-5.5-flash-preview_free-oc/index.html" data-title="ERNIE-5.5-Flash-Preview with OpenCode 2.2.5"><img src="bilder/baidu--ernie-5.5-flash-preview_free-oc.jpg" alt="Still of the giraffe by ERNIE-5.5-Flash-Preview with OpenCode 2.2.5" loading="lazy" width="800" height="413"><span>Run the giraffe</span></a><div class="body"><p class="tags"><span class="tag ow">Open Weights</span><span class="tag cl">Cloud</span></p>
+<h3>ERNIE-5.5-Flash-Preview</h3><p class="sub">Baidu · OpenRouter</p><p class="date">Released November 10, 2026</p>
+<div class="kv"><div><span>Coding time</span><b>30 min</b></div><div><span>Speed (provider)</span><b>37.8 tok/s</b></div><div title="OpenRouter cost (real, via API)"><span>Cost (real, API)</span><b>$0</b></div></div>
+<p class="note">OpenRouter offers this model only as a free variant, so the run cost nothing.</p><details class="more"><summary>Details</summary><dl>
+<div><dt>Model on OpenRouter</dt><dd><a href="https://openrouter.ai/baidu/ernie-5.5-flash-preview:free">baidu/ernie-5.5-flash-preview:free</a></dd></div>
+<div><dt>Weights</dt><dd><a href="https://huggingface.co/baidu/ERNIE-5.5-Flash-Preview">baidu/ERNIE-5.5-Flash-Preview</a></dd></div>
+<div><dt>Released</dt><dd>November 10, 2026 <span class="muted">(date the model was added to OpenRouter)</span></dd></div>
+<div><dt>Hardware</dt><dd>Cloud via OpenRouter, served by Baidu</dd></div>
+<div><dt>Harness</dt><dd>OpenCode 2.2.5</dd></div>
+<div><dt>Thinking</dt><dd>Model default <span class="muted">(pi and OpenCode sent no thinking setting to OpenRouter, so the model default applied)</span><br>175,855 reasoning tokens billed</dd></div>
+<div><dt>Coding time</dt><dd>30 min, 127 requests</dd></div>
+<div><dt>Tokens</dt><dd>22,030,117 <span class="muted">(296,610 new input, 21,665,024 cached, 68,483 output)</span></dd></div>
+<div class="wide"><dt>OpenRouter cost (real, via API)</dt><dd>$0 <span class="muted">(list price per million tokens: $0 input, $0 cached, $0 output)</span></dd></div></dl></details></div></div></article>
+<article class="card" id="m-thinkingmachines--inkling-2-small" data-date="2026-11-09" data-p="" data-act="" data-mem="" data-arch="" data-cloud="1"><div class="tabs" role="group"><button type="button" data-i="0" aria-pressed="true"><i class="dot ok"></i>pi</button><button type="button" data-i="1" aria-pressed="false"><i class="dot ok"></i>OpenCode</button></div>
+<div class="run" data-h="pi" data-ok="1" data-or="1" data-sent="0" data-sec="337" data-tok="1736696" data-price="0.08357413" data-tps="147.558" data-s="thinkingmachines--inkling-2-small inkling 2 small thinking machines thinkingmachines/inkling-2-small pi 1.5.0 cloud openrouter primeintellect open weights">
+<a class="shot" href="g/thinkingmachines--inkling-2-small-pi/index.html" data-title="Inkling 2 Small with pi 1.5.0"><img src="bilder/thinkingmachines--inkling-2-small-pi.jpg" alt="Still of the giraffe by Inkling 2 Small with pi 1.5.0" loading="lazy" width="800" height="413"><span>Run the giraffe</span></a><div class="body"><p class="tags"><span class="tag ow">Open Weights</span><span class="tag cl">Cloud</span></p>
+<h3>Inkling 2 Small</h3><p class="sub">Thinking Machines · OpenRouter</p><p class="date">Released November 9, 2026</p>
+<div class="kv"><div><span>Coding time</span><b>6 min</b></div><div><span>Speed (provider)</span><b>148 tok/s</b></div><div title="OpenRouter cost (real, via API)"><span>Cost (real, API)</span><b>$0.084</b></div></div>
+<details class="more"><summary>Details</summary><dl>
+<div><dt>Model on OpenRouter</dt><dd><a href="https://openrouter.ai/thinkingmachines/inkling-2-small">thinkingmachines/inkling-2-small</a></dd></div>
+<div><dt>Weights</dt><dd><a href="https://huggingface.co/thinkingmachines/Inkling-2-Small">thinkingmachines/Inkling-2-Small</a></dd></div>
+<div><dt>Released</dt><dd>November 9, 2026 <span class="muted">(date the model was added to OpenRouter)</span></dd></div>
+<div><dt>Hardware</dt><dd>Cloud via OpenRouter, served by PrimeIntellect</dd></div>
+<div><dt>Harness</dt><dd>pi 1.5.0</dd></div>
+<div><dt>Thinking</dt><dd>Model default <span class="muted">(pi and OpenCode sent no thinking setting to OpenRouter, so the model default applied)</span><br>22,016 reasoning tokens billed</dd></div>
+<div><dt>Coding time</dt><dd>6 min, 47 requests</dd></div>
+<div><dt>Tokens</dt><dd>1,736,696 <span class="muted">(67,513 new input, 1,619,456 cached, 49,727 output)</span></dd></div>
+<div class="wide"><dt>OpenRouter cost (real, via API)</dt><dd>$0.084 <span class="muted">(list price per million tokens: $0.300 input, $0.030 cached, $1.00 output)</span></dd></div></dl></details></div></div><div class="run" data-h="oc" data-ok="1" data-or="1" data-sent="0" data-sec="304" data-tok="2999511" data-price="0.11924402" data-tps="88.033" data-s="thinkingmachines--inkling-2-small inkling 2 small thinking machines thinkingmachines/inkling-2-small opencode 2.2.5 cloud openrouter primeintellect open weights" hidden>
+<a class="shot" href="g/thinkingmachines--inkling-2-small-oc/index.html" data-title="Inkling 2 Small with OpenCode 2.2.5"><img src="bilder/thinkingmachines--inkling-2-small-oc.jpg" alt="Still of the giraffe by Inkling 2 Small with OpenCode 2.2.5" loading="lazy" width="800" height="413"><span>Run the giraffe</span></a><div class="body"><p class="tags"><span class="tag ow">Open Weights</span><span class="tag cl">Cloud</span></p>
+<h3>Inkling 2 Small</h3><p class="sub">Thinking Machines · OpenRouter</p><p class="date">Released November 9, 2026</p>
+<div class="kv"><div><span>Coding time</span><b>5 min</b></div><div><span>Speed (provider)</span><b>88.0 tok/s</b></div><div title="OpenRouter cost (real, via API)"><span>Cost (real, API)</span><b>$0.119</b></div></div>
+<details class="more"><summary>Details</summary><dl>
+<div><dt>Model on OpenRouter</dt><dd><a href="https://openrouter.ai/thinkingmachines/inkling-2-small">thinkingmachines/inkling-2-small</a></dd></div>
+<div><dt>Weights</dt><dd><a href="https://huggingface.co/thinkingmachines/Inkling-2-Small">thinkingmachines/Inkling-2-Small</a></dd></div>
+<div><dt>Released</dt><dd>November 9, 2026 <span class="muted">(date the model was added to OpenRouter)</span></dd></div>
+<div><dt>Hardware</dt><dd>Cloud via OpenRouter, served by PrimeIntellect</dd></div>
+<div><dt>Harness</dt><dd>OpenCode 2.2.5</dd></div>
+<div><dt>Thinking</dt><dd>Model default <span class="muted">(pi and OpenCode sent no thinking setting to OpenRouter, so the model default applied)</span><br>15,643 reasoning tokens billed</dd></div>
+<div><dt>Coding time</dt><dd>5 min, 74 requests</dd></div>
+<div><dt>Tokens</dt><dd>2,999,511 <span class="muted">(72,525 new input, 2,900,224 cached, 26,762 output)</span></dd></div>
+<div class="wide"><dt>OpenRouter cost (real, via API)</dt><dd>$0.119 <span class="muted">(list price per million tokens: $0.300 input, $0.030 cached, $1.00 output)</span></dd></div></dl></details></div></div></article>
 <article class="card" id="m-meta--muse-ember" data-date="2026-11-09" data-p="" data-act="" data-mem="" data-arch="" data-cloud="1"><div class="tabs" role="group"><button type="button" data-i="0" aria-pressed="true"><i class="dot ok"></i>pi</button><button type="button" data-i="1" aria-pressed="false"><i class="dot ok"></i>OpenCode</button></div>
 <div class="run" data-h="pi" data-ok="1" data-or="1" data-sent="0" data-sec="843" data-tok="7799060" data-price="0.09166122" data-tps="76.068" data-s="meta--muse-ember muse ember meta meta/muse-ember pi 1.5.0 cloud openrouter google closed neck and legs are made of separate segments that do not join up.">
 <a class="shot" href="g/meta--muse-ember-pi/index.html" data-title="Muse Ember with pi 1.5.0"><img src="bilder/meta--muse-ember-pi.jpg" alt="Still of the giraffe by Muse Ember with pi 1.5.0" loading="lazy" width="800" height="413"><span>Run the giraffe</span></a><div class="body"><p class="tags"><span class="tag cw">Closed</span><span class="tag cl">Cloud</span></p>

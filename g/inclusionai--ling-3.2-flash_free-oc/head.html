@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Walking Giraffe — Three.js</title>
+<style>
+  html, body { margin: 0; height: 100%; overflow: hidden; background: #9fc4dd;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  canvas { display: block; }
+  #ui {
+    position: fixed; top: 14px; left: 14px; z-index: 10;
+    background: rgba(20, 18, 12, 0.55); backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.18); border-radius: 12px;
+    color: #f3ead6; padding: 14px 16px; width: 230px; user-select: none;
+  }
+  #ui h1 { font-size: 15px; margin: 0 0 10px; letter-spacing: 0.4px; }
+  #ui .row { display: flex; align-items: center; gap: 8px; margin: 8px 0; font-size: 12px; }
+  #ui input[type=range] { flex: 1; }
+  #ui button {
+    background: #c69a5b; color: #241a0c; border: 0; border-radius: 8px;
+    padding: 6px 12px; font-size: 12px; font-weight: 600; cursor: pointer;
+  }
+  #ui button:hover { background: #d8ae70; }
+  #ui label { display: flex; align-items: center; gap: 5px; cursor: pointer; }
+  #ui .hint { font-size: 11px; opacity: 0.75; margin: 10px 0 0; line-height: 1.5; }
+  #speedVal { min-width: 34px; text-align: right; font-variant-numeric: tabular-nums; }
+</style>
+</head>
+<body>
+<div id="ui">
+  <h1>🦒 Walking Giraffe</h1>
+  <div class="row">
+    <span>Speed</span>
+    <input id="speed" type="range" min="0" max="2" step="0.05" value="1">
+    <span id="speedVal">1.00x</span>
+  </div>
+  <div class="row">
+    <button id="pauseBtn">Pause</button>
+    <label><input id="spin" type="checkbox"> auto-orbit</label>
+  </div>
+  <p class="hint">Drag to orbit &middot; scroll to zoom &middot; Space to pause.<br>
+  Giraffes walk by moving both legs on one side of the body at once — watch the sway.</p>
+</div>
+<script type="module">
