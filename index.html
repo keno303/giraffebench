@@ -28,7 +28,7 @@
 <select id="fhw" aria-label="Hardware"><option value="">Any hardware</option><option value="local">Local only</option><option value="cloud">Cloud only</option><option value="8">Fits in 8 GB</option><option value="12">Fits in 12 GB</option><option value="16">Fits in 16 GB</option><option value="24">Fits in 24 GB</option><option value="32">Fits in 32 GB</option><option value="64">Fits in 64 GB</option><option value="128">Fits in 128 GB</option><option value="256">Fits in 256 GB</option></select>
 <select id="s" aria-label="Sort"><option value="date:-1">Newest models first</option><option value="date:1">Oldest models first</option><option value="p:1">Smallest models first</option><option value="p:-1">Largest models first</option><option value="mem:1">Least memory first</option><option value="tps:-1">Fastest first</option><option value="price:1">Cheapest first</option><option value="sec:1">Shortest coding time first</option><option value="tok:1">Fewest tokens first</option></select>
 <button type="button" id="mb" class="mb" aria-expanded="false" aria-controls="mf">More filters</button>
-<span class="count" id="n" aria-live="polite"></span>
+<div class="bfoot"><button type="button" id="dall" class="dall" aria-pressed="false" data-open="Expand all details" data-close="Collapse all details">Expand all details</button><span class="count" id="n" aria-live="polite"></span></div>
 <div class="mf" id="mf" hidden>
 <select id="fh" aria-label="Harness"><option value="">pi and OpenCode</option><option value="pi">pi only</option><option value="oc">OpenCode only</option></select>
 <select id="fa" aria-label="Architecture"><option value="">Dense and MoE</option><option value="Dense">Dense only</option><option value="MoE">MoE only</option></select>
@@ -3221,7 +3221,7 @@
 <div class="wide"><dt>OpenRouter cost (real, via API)</dt><dd>$0.033 <span class="muted">(list price per million tokens: $2.50 input, $1.25 cached, $10.00 output)</span></dd></div></dl></details></div></div></article>
 </div><p class="empty" id="none" hidden>No runs match this selection.</p></main>
 <footer class="wrap"><p>The giraffes are exactly as the models wrote them; some load Three.js from a CDN. They are rated by visitors in the giraffe duel.</p><p><a class="mlink" href="methodology.html">How we measured: methodology →</a></p></footer>
-<dialog id="v" aria-label="Giraffe"><div class="dbar"><strong id="vt"></strong><a id="vo" target="_blank" rel="noopener">Open in new tab</a><button id="vc" type="button">Close</button></div><iframe id="vf" title="Running giraffe" allow="fullscreen"></iframe></dialog>
+<dialog id="v" aria-label="Giraffe"><div class="dbar"><strong id="vt"></strong><a id="vo" target="_blank" rel="noopener">Expand all details</a><button id="vc" type="button">Collapse all details</button></div><iframe id="vf" title="Running giraffe" allow="fullscreen"></iframe></dialog>
 <script>
 (function(){
 var COUNT=[["model", "models"], ["run", "runs"], ["working giraffe", "working giraffes"]], CARDKEYS={date:1,p:1,mem:1};
@@ -3257,6 +3257,10 @@ var H0='';try{H0=decodeURIComponent(location.hash.slice(1))}catch(e){}
  // details: the cards of one row open and close together, so no card shows empty space next to an opened one
  g.addEventListener('toggle',function(e){var d=e.target;if(!d.classList||!d.classList.contains('more'))return;var c=d.closest('.card');if(!c||c.hidden)return;var top=c.offsetTop;
   [].forEach.call(g.querySelectorAll('.card'),function(k){if(k.hidden||k.offsetTop!==top)return;[].forEach.call(k.querySelectorAll('details.more'),function(x){if(x.open!==d.open)x.open=d.open})})},true);
+ // one switch for the details of every card: opens all, or closes all once everything is open
+ var dall=$('dall');function dsync(){var ds=g.querySelectorAll('.card:not([hidden]) details.more'),all=ds.length&&[].every.call(ds,function(x){return x.open});dall.textContent=all?dall.dataset.close:dall.dataset.open;dall.setAttribute('aria-pressed',all)}
+ dall.addEventListener('click',function(){var ds=g.querySelectorAll('details.more'),open=dall.getAttribute('aria-pressed')!=='true';[].forEach.call(ds,function(x){x.open=open});dsync()});
+ g.addEventListener('toggle',function(){clearTimeout(dall._t);dall._t=setTimeout(dsync,30)},true);
  // a link to a card (#m-…, e.g. from the duel ranking): the cards are sorted by script, so jump after the first sort
  (function(){var h=H0;if(!/^m-/.test(h))return;var c=$(h);if(!c)return;if(c.hidden){q.value='';[fok,fhw,fh,fa,fo,ft].forEach(function(f){f.value=''});run()}
   function go(){c.scrollIntoView({block:'start'})}go();c.classList.remove('flash');void c.offsetWidth;c.classList.add('flash');

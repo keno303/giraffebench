@@ -272,3 +272,31 @@ html.dulock{overflow:hidden}
  /* the sort select carries the longest labels: give it a row of its own */
  #s{flex-basis:100%}
 }
+
+/* filter bar as an even grid (wide screens): the search takes two columns, every select one, the count closes it on a row of its own */
+@media(min-width:40.01rem){
+ .bar .wrap{display:grid;grid-template-columns:repeat(auto-fill,minmax(12.5rem,1fr));gap:.55rem;align-items:center}
+ .bar .qwrap{grid-column:span 2}
+ .bar .mf,.bar .mf[hidden]{display:contents!important}
+ .bar select{width:100%}
+ .count{grid-column:1/-1;justify-self:end;margin:0}
+}
+/* breathing room between the filter bar and the first row of cards */
+#g{padding-top:1.25rem}
+
+/* selects: our own chevron with a fixed inset instead of the browser's arrow, which some browsers draw flush against the right edge */
+select{-webkit-appearance:none;appearance:none;padding-right:2.4rem;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23666158' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .9rem center;background-size:.85rem}
+@media (prefers-color-scheme:dark){select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a9a397' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")}}
+select option{background:var(--card);color:var(--fg)}
+/* the same chevron on the "more filters" button (phones), turned when open */
+.mb::after{content:"";display:inline-block;width:.85rem;height:.85rem;margin-left:.45rem;vertical-align:-.1em;background:var(--muted);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") center/contain no-repeat}
+.mb[aria-expanded=true]::after{transform:scaleY(-1)}
+@media(max-width:40rem){.bar select{padding-left:.75rem;padding-right:1.75rem;background-position:right .6rem center;font-size:.9rem}}
+
+/* last row of the filter bar: the details switch on the left, the count on the right */
+.bfoot{display:flex;align-items:center;justify-content:space-between;gap:1rem;width:100%;order:9;grid-column:1/-1}
+.bfoot .count{width:auto;margin:0;order:0}
+.dall{font:inherit;font-size:.88rem;font-weight:600;color:var(--accent);background:none;border:0;padding:.35rem 0;cursor:pointer;text-decoration:underline;text-decoration-color:color-mix(in srgb,var(--accent) 35%,transparent);text-underline-offset:.2em}
+.dall:hover{text-decoration-color:var(--accent)}
+.dall{white-space:nowrap}
+@media(max-width:40rem){.bfoot{flex-direction:column;align-items:flex-start;gap:.15rem}.bfoot .count{white-space:normal}}
