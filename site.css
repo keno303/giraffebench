@@ -308,3 +308,6 @@ h1 a.home:hover{color:color-mix(in srgb,var(--fg) 80%,var(--accent))}
 .flinks{display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;margin-top:1rem!important}
 .flinks a{color:var(--muted);text-underline-offset:.2em}
 .flinks a:hover{color:var(--fg)}
+/* methodology: as wide as the header (left edges line up), the reading measure stays on the text itself */
+.method{max-width:86rem}
+.method>*{max-width:46rem}
