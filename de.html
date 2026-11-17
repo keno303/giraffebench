@@ -6,7 +6,7 @@
 <link rel="alternate" hreflang="en" href="index.html"><link rel="alternate" hreflang="de" href="de.html">
 <meta name="description" content="251 Läufe lokaler und Cloud-Sprachmodelle mit derselben Three.js-Aufgabe: Modell, Quantisierung, Hardware, Tokens, Zeit und Kosten.">
 <meta property="og:type" content="website"><meta property="og:title" content="GiraffeBench 1.0"><meta property="og:description" content="251 Läufe lokaler und Cloud-Sprachmodelle mit derselben Three.js-Aufgabe: Modell, Quantisierung, Hardware, Tokens, Zeit und Kosten.">
-<meta property="og:image" content="https://keno303.github.io/lokale-giraffen/bilder/openai--gpt-6-astra-pi.jpg"><meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://keno303.github.io/giraffebench/bilder/openai--gpt-6-astra-pi.jpg"><meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="site.css">
 </head><body>
 <header class="wrap">
@@ -36,10 +36,10 @@
 <select id="ft" aria-label="Thinking"><option value="">jedes Thinking</option><option value="1">Thinking-Angabe gesendet</option><option value="0">Voreinstellung des Modells</option></select>
 </div></div></div>
 <main class="wrap"><div class="grid" id="g">
-<article class="card" id="m-qwen--qwen4-max" data-date="2026-11-16" data-p="" data-act="" data-mem="" data-arch="" data-cloud="1"><div class="tabs" role="group"><button type="button" data-i="0" aria-pressed="true"><i class="dot ok"></i>pi</button><button type="button" data-i="1" aria-pressed="false"><i class="dot ok"></i>OpenCode</button></div>
-<div class="run" data-h="pi" data-ok="1" data-or="1" data-sent="0" data-sec="1516" data-tok="1411522" data-price="0.37137609" data-tps="26.361" data-s="qwen--qwen4-max qwen4 max qwen qwen/qwen4-max  pi 1.5.0 cloud openrouter alibaba closed">
+<article class="card" id="m-qwen--qwen4-max" data-date="2026-11-16" data-p="2400" data-act="" data-mem="" data-arch="MoE" data-cloud="1"><div class="tabs" role="group"><button type="button" data-i="0" aria-pressed="true"><i class="dot ok"></i>pi</button><button type="button" data-i="1" aria-pressed="false"><i class="dot ok"></i>OpenCode</button></div>
+<div class="run" data-h="pi" data-ok="1" data-or="1" data-sent="0" data-sec="1516" data-tok="1411522" data-price="0.37137609" data-tps="26.361" data-s="qwen--qwen4-max qwen4 max qwen qwen/qwen4-max moe pi 1.5.0 cloud openrouter alibaba closed">
 <a class="shot" href="g/qwen--qwen4-max-pi/index.html" data-title="Qwen4 Max mit pi 1.5.0"><img src="bilder/qwen--qwen4-max-pi.jpg" alt="Standbild der Giraffe von Qwen4 Max mit pi 1.5.0" loading="lazy" width="800" height="413"><span>Giraffe laufen lassen</span></a><div class="body"><p class="tags"><span class="tag cw">Closed</span><span class="tag cl">Cloud</span></p>
-<h3>Qwen4 Max</h3><p class="sub">Qwen · OpenRouter</p><p class="date">Erschienen 16. November 2026</p>
+<h3>Qwen4 Max</h3><p class="sub">Qwen · OpenRouter · 2400 Mrd. MoE</p><p class="date">Erschienen 16. November 2026</p>
 <div class="kv"><div><span>Coding-Zeit</span><b>25 min</b></div><div><span>Tempo (Anbieter)</span><b>26,4 Tok/s</b></div><div title="OpenRouter-Kosten (real, über API)"><span>Kosten (real, API)</span><b>0,371 $</b></div></div>
 <details class="more"><summary>Details</summary><dl>
 <div><dt>Modell bei OpenRouter</dt><dd><a href="https://openrouter.ai/qwen/qwen4-max">qwen/qwen4-max</a></dd></div>
@@ -50,9 +50,9 @@
 <div><dt>Thinking</dt><dd>Voreinstellung des Modells <span class="muted">(pi und OpenCode schickten OpenRouter keine Thinking-Einstellung, es galt die Voreinstellung des Modells)</span><br>19.240 Reasoning-Tokens abgerechnet</dd></div>
 <div><dt>Coding-Zeit</dt><dd>25 min, 39 Anfragen</dd></div>
 <div><dt>Tokens</dt><dd>1.411.522 <span class="muted">(75.942 Eingabe neu, 1.295.616 aus Cache, 39.964 Ausgabe)</span></dd></div>
-<div class="wide"><dt>OpenRouter-Kosten (real, über API)</dt><dd>0,371 $ <span class="muted">(Listenpreis pro Million Tokens: 1,50 $ Eingabe, 0,075 $ Cache, 4,50 $ Ausgabe)</span></dd></div></dl></details></div></div><div class="run" data-h="oc" data-ok="1" data-or="1" data-sent="0" data-sec="1193" data-tok="2358792" data-price="0.54914740" data-tps="24.707" data-s="qwen--qwen4-max qwen4 max qwen qwen/qwen4-max  opencode 2.2.5 cloud openrouter alibaba closed" hidden>
+<div class="wide"><dt>OpenRouter-Kosten (real, über API)</dt><dd>0,371 $ <span class="muted">(Listenpreis pro Million Tokens: 1,50 $ Eingabe, 0,075 $ Cache, 4,50 $ Ausgabe)</span></dd></div></dl></details></div></div><div class="run" data-h="oc" data-ok="1" data-or="1" data-sent="0" data-sec="1193" data-tok="2358792" data-price="0.54914740" data-tps="24.707" data-s="qwen--qwen4-max qwen4 max qwen qwen/qwen4-max moe opencode 2.2.5 cloud openrouter alibaba closed" hidden>
 <a class="shot" href="g/qwen--qwen4-max-oc/index.html" data-title="Qwen4 Max mit OpenCode 2.2.5"><img src="bilder/qwen--qwen4-max-oc.jpg" alt="Standbild der Giraffe von Qwen4 Max mit OpenCode 2.2.5" loading="lazy" width="800" height="413"><span>Giraffe laufen lassen</span></a><div class="body"><p class="tags"><span class="tag cw">Closed</span><span class="tag cl">Cloud</span></p>
-<h3>Qwen4 Max</h3><p class="sub">Qwen · OpenRouter</p><p class="date">Erschienen 16. November 2026</p>
+<h3>Qwen4 Max</h3><p class="sub">Qwen · OpenRouter · 2400 Mrd. MoE</p><p class="date">Erschienen 16. November 2026</p>
 <div class="kv"><div><span>Coding-Zeit</span><b>20 min</b></div><div><span>Tempo (Anbieter)</span><b>24,7 Tok/s</b></div><div title="OpenRouter-Kosten (real, über API)"><span>Kosten (real, API)</span><b>0,549 $</b></div></div>
 <details class="more"><summary>Details</summary><dl>
 <div><dt>Modell bei OpenRouter</dt><dd><a href="https://openrouter.ai/qwen/qwen4-max">qwen/qwen4-max</a></dd></div>
