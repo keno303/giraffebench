@@ -71,7 +71,8 @@ function start(){$('dugo').disabled=true;
 $('dugo').addEventListener('click',start);$('dusk').addEventListener('click',skip);$('dusend').addEventListener('click',send);
 sides.forEach(function(s){[].forEach.call(s.querySelectorAll('.dupick,.dupick2'),function(b){b.addEventListener('click',function(){if(!busy)mark(s.dataset.s)})});
  [].forEach.call(s.querySelectorAll('.dufull,.duzoom'),function(b){b.addEventListener('click',function(){big(s,true);s.querySelector('.dushrink').focus()})});s.querySelector('.dushrink').addEventListener('click',function(){big(s,false)})});
-function ranking(){fetch(API+'/ranking').then(function(r){return r.json()}).then(function(d){
+/* the ranking is public, so a local preview shows the live one too */
+function ranking(){fetch((root.dataset.api||API)+'/ranking').then(function(r){return r.json()}).then(function(d){
  $('durd').textContent=(d.rows.length?T.rank_d:T.rank_empty).replace('{n}',d.min).replace('{v}',d.votes);
  $('durt').tBodies[0].innerHTML=d.rows.map(function(x,i){return '<tr><td>'+(i+1)+'</td><td><a href="'+(x.stem?MAIN+'#m-'+encodeURIComponent(x.stem):QUANT)+'">'+esc(x.name)+'</a> <span class="muted">· '+(x.h==='pi'?'pi':'OpenCode')+'</span></td><td>'+x.elo+'</td><td>'+x.n+'</td></tr>'}).join('');
  $('durw').hidden=!d.rows.length}).catch(function(){$('durd').textContent=T.rank_empty})}
