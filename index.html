@@ -4,8 +4,8 @@
 <title>GiraffeBench 1.0</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23e0a53a'/%3E%3Ccircle cx='11' cy='11' r='4' fill='%236d3a17'/%3E%3Ccircle cx='22' cy='14' r='3' fill='%236d3a17'/%3E%3Ccircle cx='14' cy='23' r='4' fill='%236d3a17'/%3E%3C/svg%3E">
 <link rel="alternate" hreflang="en" href="index.html"><link rel="alternate" hreflang="de" href="de.html">
-<meta name="description" content="251 runs of local and cloud language models on the same Three.js task: model, quantization, hardware, tokens, time and cost.">
-<meta property="og:type" content="website"><meta property="og:title" content="GiraffeBench 1.0"><meta property="og:description" content="251 runs of local and cloud language models on the same Three.js task: model, quantization, hardware, tokens, time and cost.">
+<meta name="description" content="(Local) LLMs build Giraffes.">
+<meta property="og:type" content="website"><meta property="og:title" content="GiraffeBench 1.0"><meta property="og:description" content="(Local) LLMs build Giraffes.">
 <meta property="og:image" content="https://keno303.github.io/giraffebench/bilder/openai--gpt-6-astra-pi.jpg"><meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="site.css">
 </head><body>
@@ -3260,7 +3260,15 @@ var H0='';try{H0=decodeURIComponent(location.hash.slice(1))}catch(e){}
  // one switch for the details of every card: opens all, or closes all once everything is open
  var dall=$('dall');function dsync(){var ds=g.querySelectorAll('.card:not([hidden]) details.more'),all=ds.length&&[].every.call(ds,function(x){return x.open});dall.textContent=all?dall.dataset.close:dall.dataset.open;dall.setAttribute('aria-pressed',all)}
  dall.addEventListener('click',function(){var ds=g.querySelectorAll('details.more'),open=dall.getAttribute('aria-pressed')!=='true';[].forEach.call(ds,function(x){x.open=open});dsync()});
- g.addEventListener('toggle',function(){clearTimeout(dall._t);dall._t=setTimeout(dsync,30)},true);
+ // open details start at the same height in every card of a row (the notes above them differ in length); closed ones sit at the card bottom again
+ function dalign(){var ds=[].filter.call(g.querySelectorAll('.card:not([hidden]) .run:not([hidden]) details.more'),function(d){return d.offsetParent});
+  ds.forEach(function(d){d.style.marginTop=d.open?'0px':''});var rows={};
+  ds.forEach(function(d){if(!d.open)return;var k=d.closest('.card').offsetTop;(rows[k]=rows[k]||[]).push([d,d.getBoundingClientRect().top])});
+  Object.keys(rows).forEach(function(k){var r=rows[k],t=Math.max.apply(null,r.map(function(x){return x[1]}));r.forEach(function(x){x[0].style.marginTop=(t-x[1])+'px'})})}
+ g.addEventListener('toggle',function(){clearTimeout(dall._t);dall._t=setTimeout(function(){dsync();dalign()},30)},true);
+ addEventListener('resize',function(){clearTimeout(dall._r);dall._r=setTimeout(dalign,150)});
+ [q,fok,fhw,fh,fa,fo,ft,s].forEach(function(el){el.addEventListener('change',function(){setTimeout(dalign,0)})});
+ g.addEventListener('click',function(e){if(e.target.closest('.tabs'))setTimeout(dalign,0)});
  // a link to a card (#m-…, e.g. from the duel ranking): the cards are sorted by script, so jump after the first sort
  (function(){var h=H0;if(!/^m-/.test(h))return;var c=$(h);if(!c)return;if(c.hidden){q.value='';[fok,fhw,fh,fa,fo,ft].forEach(function(f){f.value=''});run()}
   function go(){c.scrollIntoView({block:'start'})}go();c.classList.remove('flash');void c.offsetWidth;c.classList.add('flash');
