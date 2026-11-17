@@ -300,3 +300,11 @@ select option{background:var(--card);color:var(--fg)}
 .dall:hover{text-decoration-color:var(--accent)}
 .dall{white-space:nowrap}
 @media(max-width:40rem){.bfoot{flex-direction:column;align-items:flex-start;gap:.15rem}.bfoot .count{white-space:normal}}
+
+/* the title links to the start page without looking like a link */
+h1 a.home{color:inherit;text-decoration:none}
+h1 a.home:hover{color:color-mix(in srgb,var(--fg) 80%,var(--accent))}
+/* footer links to c't 3003 and heise.de */
+.flinks{display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;margin-top:1rem!important}
+.flinks a{color:var(--muted);text-underline-offset:.2em}
+.flinks a:hover{color:var(--fg)}

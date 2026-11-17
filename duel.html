@@ -8,8 +8,8 @@
 </head><body>
 <header class="wrap">
 <div class="top">
-<a class="logo" href="https://www.youtube.com/ct3003" title="c't 3003 on YouTube"><picture><source srcset="logo-dark.png" media="(prefers-color-scheme: dark)"><img src="logo-light.png" alt="c't 3003 on YouTube" width="184" height="192"></picture></a>
-<div class="ttl"><p class="kicker">c't 3003</p><h1>GiraffeBench 1.0</h1></div>
+<a class="logo" href="index.html" title="c't 3003 · GiraffeBench home"><picture><source srcset="logo-dark.png" media="(prefers-color-scheme: dark)"><img src="logo-light.png" alt="c't 3003 · GiraffeBench home" width="184" height="192"></picture></a>
+<div class="ttl"><p class="kicker">c't 3003</p><h1><a class="home" href="index.html">GiraffeBench 1.0</a></h1></div>
 <nav class="lang" aria-label="Language"><a href="duel.html" hreflang="en" lang="en" aria-current="page">EN</a><a href="duell.html" hreflang="de" lang="de">DE</a></nav>
 <script>[].forEach.call(document.querySelectorAll('.lang a'),function(a){a.addEventListener('click',function(){try{localStorage.setItem('lang',a.hreflang)}catch(e){}})})</script>
 </div></header>
@@ -79,4 +79,5 @@ function ranking(){fetch((root.dataset.api||API)+'/ranking').then(function(r){re
 ranking();
 })()</script>
 </main>
+<footer class="wrap"><p class="flinks"><a href="https://www.youtube.com/ct3003">c't 3003 on YouTube</a><a href="https://www.heise.de/">heise.de</a></p></footer>
 </body></html>
