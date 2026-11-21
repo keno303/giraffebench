@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#d8cdb4">
+  <title>Giraffe — Savanna Atlas</title>
+  <link rel="stylesheet" href="atlas.css">
+  <script defer src="vendor/three.min.js"></script>
+  <script defer src="giraffe.js"></script>
+  <script defer src="savanna.js"></script>
+  <script defer src="atlas.js"></script>
+</head>
+<body>
+  <main class="atlas" aria-label="Savanna Atlas: walking giraffe">
+    <div class="stage" id="stage" aria-label="3D reticulated giraffe walking across the savanna" role="img"></div>
+    <div class="wash" aria-hidden="true"></div>
+    <header class="masthead">
+      <div class="brand"><svg viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="10"/><path d="M14 1v26M1 14h26m-17 0 4-6 4 6-4 6z"/></svg><span>Savanna <b>Atlas</b></span></div>
+      <div class="series">Field studies <span></span> 01</div>
+    </header>
+    <section class="intro" aria-labelledby="species">
+      <div class="eyebrow"><span></span> 01 / Species in motion</div>
+      <h1 id="species">Giraffe</h1>
+      <p class="latin">Giraffa reticulata</p>
+      <p class="note">Each hind hoof touches down before the forehoof on the same side. Watch the neck sway with each stride.</p>
+    </section>
+    <div id="notice" class="notice" role="status" hidden></div>
+    <footer class="footbar">
+      <div class="habitat"><span>Native range</span><strong>East African savanna</strong></div>
+      <section class="player" aria-label="Animation controls">
+        <button id="play" class="icon-button play" type="button" aria-label="Pause animation" title="Pause / play (Space)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path class="pause-icon" d="M8 5h3v14H8zm5 0h3v14h-3z"/><path class="play-icon" d="m8 4 12 8-12 8z"/></svg>
+        </button>
+        <div class="stride">
+          <div class="stride-title"><label for="phase">Stride cycle</label><output id="percent" for="phase" aria-hidden="true">79%</output></div>
+          <input type="range" id="phase" min="0" max="1000" value="790" aria-label="Stride cycle position" aria-valuetext="79%">
+        </div>
+        <button id="speed" class="speed" type="button" aria-label="Playback speed: 1 times" title="Change playback speed">1×</button>
+        <button id="reset" class="icon-button reset" type="button" aria-label="Reset camera" title="Reset camera (R)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11a8 8 0 1 1 2.2 6.5M4 5v6h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </section>
+      <div class="orbit-hint"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5 4 9l4 4m8 6 4-4-4-4M4 9h12m4 6H8"/></svg> Drag to orbit</div>
+    </footer>
+  </main>
+  <noscript><p class="notice">Enable JavaScript to view the walking giraffe.</p></noscript>
+</body>
+</html>

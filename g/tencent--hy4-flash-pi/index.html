@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Walking Giraffe — Three.js</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; overflow: hidden; background: #c9b48d; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  #scene { display: block; width: 100vw; height: 100vh; touch-action: none; cursor: grab; }
+  #scene:active { cursor: grabbing; }
+
+  .vignette {
+    position: fixed; inset: 0; pointer-events: none;
+    background: radial-gradient(ellipse at 55% 45%, rgba(0,0,0,0) 45%, rgba(38,26,12,.20) 100%);
+    mix-blend-mode: multiply;
+  }
+  .title {
+    position: fixed; top: 26px; left: 30px; pointer-events: none;
+    color: #fff8e9; text-shadow: 0 2px 14px rgba(40,25,10,.55);
+  }
+  .title h1 { margin: 0; font-size: 19px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; }
+  .title p { margin: 6px 0 0; font-size: 11px; letter-spacing: .18em; opacity: .78; text-transform: uppercase; }
+
+  .panel {
+    position: fixed; left: 30px; bottom: 26px;
+    padding: 13px 16px 12px; border-radius: 10px;
+    background: rgba(35, 27, 18, .44); border: 1px solid rgba(255,244,220,.16);
+    backdrop-filter: blur(9px); -webkit-backdrop-filter: blur(9px);
+    color: #fdf2dd; box-shadow: 0 8px 26px rgba(0,0,0,.16);
+    min-width: 258px;
+  }
+  .panel .row { display: flex; align-items: center; gap: 10px; }
+  .panel .row + .row { margin-top: 10px; }
+  .panel label { font-size: 10px; letter-spacing: .14em; text-transform: uppercase; opacity: .72; width: 55px; }
+  .panel button {
+    color: #fdf2dd; background: rgba(255,244,220,.11); border: 1px solid rgba(255,244,220,.20);
+    border-radius: 6px; min-width: 30px; height: 27px; padding: 0 8px; cursor: pointer;
+    font: inherit; font-size: 12px; line-height: 1; transition: background .15s, transform .1s;
+  }
+  .panel button:hover { background: rgba(255,244,220,.23); }
+  .panel button:active { transform: translateY(1px); }
+  #speedValue { font-variant-numeric: tabular-nums; font-size: 12px; width: 40px; text-align: right; opacity: .9; }
+  .hint { margin-top: 11px; padding-top: 9px; border-top: 1px solid rgba(255,244,220,.14); font-size: 10px; line-height: 1.6; opacity: .62; letter-spacing: .02em; }
+  .hint kbd { font: inherit; border: 1px solid rgba(255,244,220,.25); border-radius: 3px; padding: 0 3px; }
+
+  #loading {
+    position: fixed; inset: 0; display: flex; align-items: center; justify-content: center;
+    background: #c9b48d; color: #4a3821; font-size: 12px; letter-spacing: .25em; text-transform: uppercase;
+    transition: opacity .6s ease; z-index: 10;
+  }
+  #loading.hidden { opacity: 0; pointer-events: none; }
+  #error { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; padding: 40px;
+    background: #221b14; color: #f4d6b0; font: 13px/1.6 ui-monospace, monospace; white-space: pre-wrap; z-index: 20; }
+</style>
+</head>
+<body>
+  <canvas id="scene"></canvas>
+  <div class="vignette"></div>
+
+  <div class="title">
+    <h1>Giraffe</h1>
+    <p>camelopardalis · walking study</p>
+  </div>
+
+  <div class="panel">
+    <div class="row">
+      <label for="slower">Speed</label>
+      <button id="slower" title="Slower (←)">−</button>
+      <span id="speedValue">1.0×</span>
+      <button id="faster" title="Faster (→)">+</button>
+      <button id="pause" title="Pause (Space)">❚❚</button>
+    </div>
+    <div class="row">
+      <label>View</label>
+      <button id="side" title="Side view (1)">Side</button>
+      <button id="front" title="Front view (2)">Front</button>
+      <button id="reset" title="Reset view (R)">Reset</button>
+    </div>
+    <div class="hint">Drag to orbit · scroll to zoom<br><kbd>space</kbd> pause · <kbd>←</kbd><kbd>→</kbd> speed · <kbd>1</kbd><kbd>2</kbd> views</div>
+  </div>
+
+  <div id="loading">Preparing the savanna…</div>
+  <div id="error"></div>
+
+  <script src="vendor/three.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

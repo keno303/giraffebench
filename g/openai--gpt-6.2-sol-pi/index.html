@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#302e24">
+  <meta name="description" content="A real-time field study of a reticulated giraffe in motion.">
+  <title>The Long Walk — Field Atlas</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="field.css">
+  <script defer src="vendor/three.min.js"></script>
+  <script defer src="vendor/meshopt.min.js"></script>
+  <script defer src="geometry.js"></script>
+  <script defer src="coat.js"></script>
+  <script defer src="giraffe.js"></script>
+  <script defer src="savanna.js"></script>
+  <script defer src="field.js"></script>
+</head>
+<body>
+  <svg class="symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-atlas" viewBox="0 0 40 40"><circle cx="20" cy="20" r="17"/><circle cx="20" cy="20" r="12" stroke-dasharray="1 3"/><path d="M20 5v30M5 20h30M14 26l3.2-8.8L26 14l-3.2 8.8z"/><circle cx="20" cy="20" r="1.2" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-note" viewBox="0 0 24 24"><path d="M4.5 4.5h12a2 2 0 0 1 2 2v13h-12a2 2 0 0 1-2-2zm0 12h14M8 8.5h7M8 12h5"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M9 6.5L18 12l-9 5.5z" fill="currentColor" stroke-linejoin="round"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><path d="M9 6.5v11m6-11v11" stroke-width="2"/></symbol>
+    <symbol id="i-reset" viewBox="0 0 24 24"><path d="M5 10a7.2 7.2 0 1 1 1.2 7M5 5v5h5"/></symbol>
+    <symbol id="i-full" viewBox="0 0 24 24"><path d="M9 4.5H4.5V9m10.5-4.5h4.5V9m0 6v4.5H15m-6 0H4.5V15"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.8 12s3.6-5.6 9.2-5.6 9.2 5.6 9.2 5.6-3.6 5.6-9.2 5.6S2.8 12 2.8 12z"/><circle cx="12" cy="12" r="2.6"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12m0-12L6 18"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></symbol>
+    <symbol id="i-drag" viewBox="0 0 24 24"><path d="M9.5 13V6a1.25 1.25 0 0 1 2.5 0v5-2.5a1.25 1.25 0 0 1 2.5 0V11 9.7a1.25 1.25 0 0 1 2.5 0V12v-.7a1.25 1.25 0 0 1 2.5 0v3.2c0 3.8-1.8 5.2-4.4 5.2h-1.6c-2 0-2.9-1-4.1-2.6l-3.4-4.4a1.25 1.25 0 0 1 1.8-1.7L9.5 13z"/></symbol>
+  </svg>
+  <main id="plate" aria-label="Interactive giraffe field study">
+    <div id="viewport" tabindex="0" aria-label="3D view. Drag or use arrow keys to orbit. Scroll or use plus and minus to zoom."></div>
+    <div class="shade" aria-hidden="true"></div>
+    <div class="interface" id="interface" inert>
+      <header class="masthead">
+        <div class="brand"><svg class="atlas-icon"><use href="#i-atlas"/></svg><div><span>FIELD ATLAS</span><small>STUDIES IN MOTION</small></div></div>
+        <span class="plate-index">NATURAL HISTORY <i></i> PLATE 01</span>
+        <button class="outline notes-button" id="notes" type="button"><svg><use href="#i-note"/></svg><span>Field notes</span></button>
+      </header>
+      <section class="intro" aria-labelledby="title">
+        <div class="kicker"><span class="dash"></span> EAST AFRICAN SAVANNA</div>
+        <h1 id="title">The Long<br><em>Walk.</em></h1>
+        <div class="specimen"><span class="specimen-number" aria-hidden="true">01</span><div><h2>Reticulated giraffe</h2><i>Giraffa reticulata</i></div></div>
+        <p>A field study of the world’s tallest land animal, one stride at a time.</p>
+      </section>
+      <section class="detail-copy" aria-label="Head and neck study">
+        <div class="kicker"><span class="dash"></span> ANATOMY / HEAD &amp; NECK</div>
+        <h2>Look <em>closer.</em></h2>
+        <p>Small markings on the face open into a broad network of pale lines down the neck.</p>
+      </section>
+      <footer class="hud">
+        <div class="hint"><svg><use href="#i-drag"/></svg><span>Drag to orbit <b>·</b> Scroll to zoom</span></div>
+        <section class="transport" aria-label="Playback controls">
+          <div id="footfalls" class="footfalls" aria-label="Hoof contacts" hidden>
+            <span class="legend">FOOTFALLS</span>
+            <span title="Left hind" data-leg="0"><i></i>LH</span>
+            <span title="Left front" data-leg="1"><i></i>LF</span>
+            <span title="Right hind" data-leg="2"><i></i>RH</span>
+            <span title="Right front" data-leg="3"><i></i>RF</span>
+          </div>
+          <button id="play" class="icon playback" type="button" aria-label="Pause" title="Pause (Space)"><svg><use id="play-icon" href="#i-pause"/></svg></button>
+          <div class="timeline">
+            <div class="time-label"><label for="stride">STRIDE CYCLE</label><output id="stride-value" for="stride" aria-live="off">00%</output></div>
+            <input aria-label="Stride cycle" type="range" id="stride" min="0" max="999" step="1" value="0">
+          </div>
+          <div class="rate">
+            <button id="rate" type="button" aria-expanded="false" aria-controls="rates" title="Playback speed"><span id="rate-value">1×</span><svg><use href="#i-down"/></svg></button>
+            <div id="rates" class="rates" hidden aria-label="Playback speed">
+              <button type="button" data-speed="0.25" aria-pressed="false">0.25×</button>
+              <button type="button" data-speed="0.5" aria-pressed="false">0.5×</button>
+              <button type="button" data-speed="1" aria-pressed="true">1×</button>
+              <button type="button" data-speed="1.5" aria-pressed="false">1.5×</button>
+            </div>
+          </div>
+          <button class="icon reset" id="reset" type="button" aria-label="Restart walk and reset camera" title="Reset (R)"><svg><use href="#i-reset"/></svg></button>
+        </section>
+        <div class="view-area">
+          <nav class="views" aria-label="Camera view">
+            <button type="button" data-view="0" aria-pressed="true" title="Field view (1)">Field</button>
+            <button type="button" data-view="1" aria-pressed="false" title="Side profile (2)">Profile</button>
+            <button type="button" data-view="2" aria-pressed="false" title="Head and neck detail (3)">Detail</button>
+          </nav>
+          <button class="icon square" id="full" type="button" aria-label="Enter full screen" title="Full screen"><svg><use href="#i-full"/></svg></button>
+        </div>
+      </footer>
+    </div>
+    <button id="restore" class="outline" type="button" hidden><svg><use href="#i-eye"/></svg> Show interface</button>
+    <div class="loading" role="status" id="loading"><svg class="atlas-icon"><use href="#i-atlas"/></svg><span>PREPARING FIELD PLATE</span></div>
+    <noscript><div class="loading">Enable JavaScript to view the giraffe.</div></noscript>
+  </main>
+  <dialog id="journal" aria-labelledby="journal-title">
+    <div class="journal-top"><span>FIELD ATLAS / PLATE 01</span><button id="close" class="icon" type="button" aria-label="Close field notes"><svg><use href="#i-close"/></svg></button></div>
+    <span class="journal-kicker">OBSERVATION NOTES</span>
+    <h2 id="journal-title">Reticulated<br><em>giraffe.</em></h2>
+    <p class="latin">Giraffa reticulata</p>
+    <dl class="facts"><div><dt>Range</dt><dd>Horn of Africa &amp; northern Kenya</dd></div><div><dt>Habitat</dt><dd>Dry savanna &amp; open woodland</dd></div></dl>
+    <h3>01 / Follow the feet</h3>
+    <p>Watch from the side: a hind hoof lands, then the forehoof on the same side. The pattern repeats on the other side. It’s a four-beat walk, not a two-beat pace. Slow down or scrub the stride control to see when each hoof leaves the ground.</p>
+    <label class="toggle"><input id="footfall-toggle" type="checkbox"> Show which hooves are on the ground</label>
+    <h3>02 / Look closer</h3>
+    <p>The two hair-covered horns are <em>ossicones</em>. The short mane traces the back of the neck, while narrow cream lines separate the chestnut patches of the coat.</p>
+    <div class="keys"><kbd>SPACE</kbd> Play / pause <kbd>1</kbd>–<kbd>3</kbd> Camera <kbd>H</kbd> Clean view</div>
+    <button id="clean" class="outline" type="button"><svg><use href="#i-eye"/></svg> Hide interface</button>
+  </dialog>
+</body>
+</html>

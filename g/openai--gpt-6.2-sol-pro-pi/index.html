@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="An interactive field study of the reticulated giraffe and its walking gait.">
+  <title>The Giraffe — Field Atlas</title>
+  <link rel="icon" href="assets/atlas.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <svg class="symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5 19 12 8 18.5Z" fill="currentColor" stroke-linejoin="round"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><path d="M9 6v12m6-12v12" stroke-width="2.5"/></symbol>
+    <symbol id="i-expand" viewBox="0 0 24 24"><path d="M9 4H4v5m11-5h5v5M4 15v5h5m11-5v5h-5"/></symbol>
+    <symbol id="i-shrink" viewBox="0 0 24 24"><path d="M4 9h5V4m11 5h-5V4M9 20v-5H4m11 5v-5h5"/></symbol>
+    <symbol id="i-notes" viewBox="0 0 24 24"><path d="M6 20V5a2 2 0 0 1 2-2h10v17H8a2 2 0 1 1 0-4h10M10 7h5m-5 4h4"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4.5 12h14m-5.5-5.5 5.5 5.5-5.5 5.5"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="i-orbit" viewBox="0 0 24 24"><path d="M4.5 11a8 8 0 0 1 13.9-4.4L21 9m0-4v4h-4M19.5 13a8 8 0 0 1-13.9 4.4L3 15m0 4v-4h4"/></symbol>
+  </svg>
+  <div class="shell">
+    <header class="masthead">
+      <div class="wordmark" aria-label="Field Atlas, interactive wildlife studies">
+        <img src="assets/atlas.svg" alt="" width="37" height="37">
+        <span class="brand">Field Atlas</span>
+        <span class="brand-caption micro">Interactive<br>wildlife studies</span>
+      </div>
+      <div class="edition">
+        <span class="edition-number micro">Volume 01 <span aria-hidden="true">/</span> East Africa</span>
+        <button class="notes-button" type="button" aria-haspopup="dialog"><svg class="icon" aria-hidden="true"><use href="#i-notes"/></svg> Field notes</button>
+      </div>
+    </header>
+
+    <main class="exhibit">
+      <aside class="marginalia" aria-label="Species information">
+        <div class="introduction">
+          <p class="specimen micro"><span class="specimen-no">01</span> <span class="specimen-line" aria-hidden="true"></span> Locomotion study</p>
+          <h1>The<br><em>Giraffe<span>.</span></em></h1>
+          <p class="taxon" lang="la">Giraffa reticulata</p>
+          <p class="abstract">A walk across the dry savanna, seen at the pace of the world’s tallest land animal.</p>
+        </div>
+        <div class="field-data">
+          <dl>
+            <div><dt>Range</dt><dd>Horn of Africa</dd></div>
+            <div><dt>Adult height</dt><dd>Approx. 4–5.5 m</dd></div>
+            <div><dt>Walking gait</dt><dd>Lateral sequence</dd></div>
+          </dl>
+          <button type="button" class="gait-note notes-button" aria-haspopup="dialog">Read the gait <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+        </div>
+      </aside>
+
+      <section class="viewer" aria-label="Interactive giraffe viewer">
+        <div class="stage" id="stage">
+          <div class="viewport" id="viewport" role="region" tabindex="0" aria-label="3D scene. Drag or use arrow keys to orbit. Scroll, pinch, or use plus and minus to zoom." aria-describedby="scene-help"></div>
+          <img class="fallback-image" id="fallback-image" src="assets/study.webp" alt="A reticulated giraffe walking on open savanna, with acacia trees in the distance." hidden>
+          <div class="loading" id="loading" role="status"><span class="loading-ring" aria-hidden="true"></span><span>Preparing the study</span></div>
+          <div class="stage-upper">
+            <div class="stage-badge micro"><span class="status-dot" aria-hidden="true"></span><span id="scene-state">3D study</span></div>
+            <button class="expand-button icon-button" id="expand" type="button" aria-label="Enter fullscreen" title="Fullscreen"><svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg></button>
+          </div>
+          <div class="stage-lower">
+            <span class="scene-caption micro"><span class="crosshair" aria-hidden="true"></span> Northern Kenya <span class="caption-dot">·</span> Dry season</span>
+            <span class="scene-help" id="scene-help"><svg class="icon" aria-hidden="true"><use href="#i-orbit"/></svg> <span class="pointer-help">Drag to orbit <span class="caption-dot">·</span> Scroll to zoom</span><span class="touch-help">Drag to orbit <span class="caption-dot">·</span> Pinch to zoom</span></span>
+          </div>
+        </div>
+
+        <div class="controls" id="controls" aria-label="Playback and camera controls">
+          <button class="play-button icon-button" id="play" type="button" aria-label="Pause walk" title="Pause (Space)"><svg class="icon" aria-hidden="true"><use href="#i-pause"/></svg></button>
+          <div class="timeline">
+            <div class="timeline-label"><label for="phase" class="micro">Stride phase</label><output id="phase-readout" for="phase" aria-live="off">00%</output></div>
+            <div class="range-wrap">
+              <div class="timeline-guide" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+              <input id="phase" type="range" min="0" max="1000" value="0" step="1" aria-label="Stride phase">
+            </div>
+          </div>
+          <div class="control-group speed">
+            <span id="speed-label" class="micro">Pace</span>
+            <div class="segments" role="group" aria-labelledby="speed-label">
+              <button type="button" data-speed="0.25" aria-pressed="false" aria-label="Quarter speed">¼×</button>
+              <button type="button" data-speed="0.5" aria-pressed="false" aria-label="Half speed">½×</button>
+              <button type="button" data-speed="1" aria-pressed="true" aria-label="Normal speed">1×</button>
+            </div>
+          </div>
+          <div class="control-group cameras">
+            <span id="camera-label" class="micro">View</span>
+            <div class="segments" role="group" aria-labelledby="camera-label">
+              <button type="button" data-view="profile" aria-pressed="true">Profile</button>
+              <button type="button" data-view="threeQuarter" aria-pressed="false" aria-label="Three-quarter view">¾</button>
+              <button type="button" data-view="portrait" aria-pressed="false">Portrait</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="folio">
+      <span class="micro">Field Atlas <span class="footer-dash" aria-hidden="true">—</span> Digital natural history</span>
+      <span class="footer-caption">Procedural reconstruction <span aria-hidden="true">/</span> Not field footage</span>
+      <span class="folio-number micro" aria-label="Plate 1">Plate 01</span>
+    </footer>
+  </div>
+
+  <dialog class="notes" id="notes" aria-labelledby="notes-title">
+    <div class="notes-inner">
+      <form method="dialog"><button type="submit" class="notes-close icon-button" aria-label="Close field notes"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button></form>
+      <p class="specimen micro"><span class="specimen-no">01</span> <span class="specimen-line" aria-hidden="true"></span> Field notes</p>
+      <h2 id="notes-title">Reading the walk</h2>
+      <p>Watch the hind hoof on one side land just before the fore hoof on that same side. The other pair follows. That’s a lateral-sequence walk: four distinct beats, not two feet landing together.</p>
+      <ol class="footfalls" aria-label="Order of footfalls">
+        <li><span>1</span>Near hind</li><li><span>2</span>Near fore</li><li><span>3</span>Far hind</li><li><span>4</span>Far fore</li>
+      </ol>
+      <p>Use quarter speed to see the foreleg fold and the hind hock flex. The planted hoof holds its place while the body moves over it. Switch to <strong>Portrait</strong> for the giraffe’s furred ossicones and the pale lines of its reticulated coat.</p>
+      <div class="keys"><kbd>Space</kbd> Play / pause <span></span><kbd>←</kbd><kbd>→</kbd> Orbit when the scene has focus</div>
+    </div>
+  </dialog>
+  <noscript><p class="script-notice">This interactive study needs JavaScript and WebGL.</p></noscript>
+  <!-- Classic scripts work under file:// without module or asset fetches. -->
+  <script src="vendor/three.min.js" defer></script>
+  <script src="assets/giraffe.js" defer></script>
+  <script src="js/giraffe.js" defer></script>
+  <script src="js/savanna.js" defer></script>
+  <script src="js/viewer.js" defer></script>
+</body>
+</html>

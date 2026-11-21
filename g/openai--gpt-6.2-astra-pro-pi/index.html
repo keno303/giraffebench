@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#f6f4eb" />
+    <meta
+      name="description"
+      content="An interactive natural-history plate of a reticulated giraffe walking through wooded savanna."
+    />
+    <title>Reticulated giraffe · Field Atlas</title>
+    <link rel="icon" type="image/svg+xml" href="assets/atlas-mark.svg" />
+    <link rel="stylesheet" href="atlas.css" />
+  </head>
+  <body>
+    <svg aria-hidden="true" class="symbols" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <symbol id="leaf" viewBox="0 0 40 44">
+          <path
+            d="M19 39C20 23 24 12 33 4M20 32C8 32 5 22 5 14c9 1 18 8 15 18ZM23 23C23 11 28 5 37 3c0 10-4 17-14 20Z"
+          />
+          <path d="M8 18l11 13M26 19l8-12M12 39h16" />
+        </symbol>
+        <symbol id="play" viewBox="0 0 24 24">
+          <path d="m8 5 11 7-11 7z" fill="currentColor" stroke="none" />
+        </symbol>
+        <symbol id="pause" viewBox="0 0 24 24">
+          <path d="M8 5v14m8-14v14" stroke-width="3" />
+        </symbol>
+        <symbol id="expand" viewBox="0 0 24 24">
+          <path d="M4 9V4h5m6 0h5v5m0 6v5h-5m-6 0H4v-5" />
+        </symbol>
+        <symbol id="orbit" viewBox="0 0 24 24">
+          <ellipse cx="12" cy="12" rx="10" ry="5" transform="rotate(-28 12 12)" />
+          <circle cx="12" cy="12" r="2" fill="currentColor" />
+        </symbol>
+        <symbol id="cam" viewBox="0 0 24 24">
+          <path d="M3 7h5l2-3h5l2 3h4v13H3z" />
+          <circle cx="12" cy="13" r="3.5" />
+        </symbol>
+        <symbol id="arrow" viewBox="0 0 24 24"><path d="m8 10 4 4 4-4" /></symbol>
+      </defs>
+    </svg>
+    <header>
+      <div class="brand">
+        <div class="mark">
+          <svg><use href="#leaf" /></svg>
+        </div>
+        <span>Field Atlas</span>
+      </div>
+      <span class="headerline"></span
+      ><span class="imprint micro">An illustrated natural history</span>
+      <div class="issue micro">Volume 01 <b>/</b> African fauna</div>
+    </header>
+    <main>
+      <aside>
+        <div class="catalog micro"><i></i> Species plate <span>001</span></div>
+        <h1>
+          Reticulated<br />
+          giraffe
+        </h1>
+        <p class="latin">Giraffa reticulata</p>
+        <div class="rule"></div>
+        <p class="blurb">
+          A lattice of cream divides the chestnut coat of this long-legged browser of East Africa’s
+          open woodlands.
+        </p>
+        <dl>
+          <div>
+            <dt>Family</dt>
+            <dd>Giraffidae</dd>
+          </div>
+          <div>
+            <dt>Range</dt>
+            <dd>East Africa</dd>
+          </div>
+          <div>
+            <dt>Habitat</dt>
+            <dd>Wooded savanna</dd>
+          </div>
+        </dl>
+        <div class="motion">
+          <div class="micro accent">Fig. 01 <b>/</b> Locomotion</div>
+          <svg viewBox="0 0 250 58" aria-label="Diagram of alternating paired hoofprints">
+            <defs>
+              <g id="hoof"><path d="M-1-6Q-5-5-5 1Q-4 7-1 6ZM1-6Q5-5 5 1Q4 7 1 6Z" /></g>
+            </defs>
+            <path d="M2 30H244m-5-3 5 3-5 3" fill="none" stroke="#bcb9a5" stroke-dasharray="3 4" />
+            <g fill="#696b51" transform="rotate(88 0 0)">
+              <use href="#hoof" x="16" y="-22" />
+              <use href="#hoof" x="18" y="-39" />
+              <use href="#hoof" x="47" y="-72" />
+              <use href="#hoof" x="49" y="-89" />
+              <use href="#hoof" x="21" y="-123" />
+              <use href="#hoof" x="23" y="-140" />
+              <use href="#hoof" x="52" y="-175" />
+              <use href="#hoof" x="54" y="-192" />
+            </g>
+          </svg>
+          <h2>The walking gait</h2>
+          <p>The hind foot advances just before the forefoot on the same side.</p>
+        </div>
+      </aside>
+      <section class="viewer" aria-label="Interactive three-dimensional giraffe study">
+        <div class="scene" id="scene" aria-busy="true">
+          <div class="toplabel micro">
+            <span id="statusDot"></span><span id="status">Live observation</span>
+          </div>
+          <button
+            id="full"
+            class="fullscreen"
+            title="Toggle fullscreen"
+            aria-label="Toggle fullscreen"
+          >
+            <svg><use href="#expand" /></svg>
+          </button>
+          <div class="figlabel"><span>Fig. 01</span><b></b> In the field</div>
+          <button class="interact micro" id="guideOpen" title="Camera and playback controls">
+            <svg><use href="#orbit" /></svg><span>Drag to orbit</span>
+          </button>
+          <div id="error" hidden>
+            Unable to display the study. Please enable WebGL in your browser.
+          </div>
+        </div>
+        <div class="controls">
+          <button
+            id="toggle"
+            class="transport"
+            title="Play or pause (Space)"
+            aria-label="Pause animation"
+          >
+            <svg><use id="playicon" href="#pause" /></svg>
+          </button>
+          <div class="speed">
+            <span class="micro">Playback</span>
+            <div class="rates" role="group" aria-label="Playback speed">
+              <button data-rate="0.5">0.5×</button
+              ><button data-rate="1" class="active" aria-pressed="true">1×</button
+              ><button data-rate="1.5">1.5×</button>
+            </div>
+          </div>
+          <div class="camera">
+            <svg><use href="#cam" /></svg
+            ><select id="view" aria-label="Camera framing">
+              <option value="profile">Tracking view</option>
+              <option value="head">Portrait view</option>
+              <option value="gait">Gait detail</option>
+              <option value="wide">Habitat view</option></select
+            ><svg class="chev"><use href="#arrow" /></svg>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="micro">
+      <span>Field Atlas <b>/</b> Mammal studies</span
+      ><a href="CREDITS.txt" target="_blank" rel="noopener"
+        >Sources &amp; credits <span aria-hidden="true">↗</span></a
+      >
+    </footer>
+    <dialog id="guide" aria-labelledby="guideTitle">
+      <form method="dialog">
+        <button class="close" aria-label="Close controls guide">×</button>
+      </form>
+      <div class="micro accent">Field Atlas <b>/</b> Viewer guide</div>
+      <h2 id="guideTitle">Explore the plate</h2>
+      <p>Follow the giraffe, or pause its stride to inspect a single moment.</p>
+      <dl>
+        <div>
+          <dt>Orbit</dt>
+          <dd>Drag or use the arrow keys</dd>
+        </div>
+        <div>
+          <dt>Zoom</dt>
+          <dd>Scroll, pinch, or use + / −</dd>
+        </div>
+        <div>
+          <dt>Play / pause</dt>
+          <dd>Space</dd>
+        </div>
+        <div>
+          <dt>Reframe</dt>
+          <dd>Double-click or press R</dd>
+        </div>
+      </dl>
+      <p class="guideNote">For keyboard camera control, focus the scene first.</p>
+    </dialog>
+    <script>
+      const ATLAS_IMAGES = {};
+    </script>
+    <script src="assets/plains.js"></script>
+    <script src="assets/loam.js"></script>
+    <script src="assets/understory.js"></script>
+    <script src="assets/leaves.js"></script>
+    <script src="assets/blades.js"></script>
+    <script src="assets/grasses.js"></script>
+    <script src="assets/face.js"></script>
+    <script src="assets/velvet.js"></script>
+    <script src="assets/frontal.js"></script>
+    <script src="assets/pinna.js"></script>
+    <script src="vendor/three.min.js"></script>
+    <script src="assets/hide.js"></script>
+    <script src="assets/hide-uv.js"></script>
+    <script src="assets/anatomy.js"></script>
+    <script src="anatomy.js"></script>
+    <script src="head.js"></script>
+    <script src="giraffe.js"></script>
+    <script src="flora.js"></script>
+    <script src="tracks.js"></script>
+    <script src="habitat.js"></script>
+    <script src="atlas.js"></script>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+FIELD ATLAS — PLATE 001: RETICULATED GIRAFFE
+Image and software credits
+
+The animal geometry, articulated walking system, real-time scene, acacia geometry,
+interface and diagrams were created for this study. The giraffe is a moving 3D
+surface, not a billboard. The photographic material studies below provide its coat.
+
+GIRAFFE PHOTOGRAPHY
+
+“Reticulated giraffe bending over to eat in Samburu National Reserve, Kenya”
+by Daniel Case — CC BY-SA 4.0.
+https://commons.wikimedia.org/wiki/File:Reticulated_giraffe_bending_over_to_eat_in_Samburu_National_Reserve,_Kenya.jpg
+https://creativecommons.org/licenses/by-sa/4.0/
+Adaptation: cropped and masked fur, adjusted colour, reconstructed the neck and
+leg coordinates in a neutral stance, registered the texture to the animal surface.
+The adapted hide plate (assets/hide.js) is also licensed under CC BY-SA 4.0.
+
+“Giraffe Profile Closeup” (13858595983) by Eric Kilby — CC BY-SA 2.0.
+https://commons.wikimedia.org/wiki/File:Giraffe_Profile_Closeup_(13858595983).jpg
+https://creativecommons.org/licenses/by-sa/2.0/
+Adaptation: masked, colour-adjusted and padded lateral face and ossicone plates,
+projected onto sculpted geometry. assets/face.js and assets/velvet.js retain that license.
+
+“Giraffe-closeup-head” by Rob Hooft — CC BY-SA 3.0.
+https://commons.wikimedia.org/wiki/File:Giraffe-closeup-head.jpg
+https://creativecommons.org/licenses/by-sa/3.0/
+Adaptation: cropped, masked and colour-adjusted frontal fur; resampled pinna lining.
+assets/frontal.js and assets/pinna.js retain that license.
+
+LANDSCAPE AND PLANTS
+
+Poly Haven — CC0 1.0 Universal, https://polyhaven.com/license
+https://creativecommons.org/publicdomain/zero/1.0/
+
+• Plains Sunset — Dimitrios Savva (photography), Jarod Guest (processing).
+  https://polyhaven.com/a/plains_sunset
+  Tone-mapped panorama and reprojected ground cover. The terrain is an illustrative
+  African grassland setting, not a geolocated recording of the animal.
+• Kloppenheim 06 (Pure Sky) — Greg Zaal (original), Jarod Guest (sky edits).
+  https://polyhaven.com/a/kloppenheim_06_puresky
+  Graded and blended with the plains panorama above its natural ridge line.
+• Dry Ground Rocks — Rob Tuytel. https://polyhaven.com/a/dry_ground_rocks
+  Resampled soil colour; blended into the moving trail material.
+• Grass Medium 02 — Rico Cilliers. https://polyhaven.com/a/grass_medium_02
+  Quantized geometry, dry leaf/alpha atlas, instanced tufts and rendered distant grass cards.
+
+SOFTWARE
+
+Three.js r160, Copyright © 2010–2023 three.js authors. MIT License.
+https://threejs.org/ — The unmodified local distribution and its license are in vendor/.
+
+All assets required for viewing are bundled locally. Image data URLs are used
+intentionally so that ordinary file:// origin restrictions do not block WebGL textures.

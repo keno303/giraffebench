@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#242922" />
+    <title>Reticulated giraffe · Fauna Atlas</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <svg class="defs" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <symbol id="atlas" viewBox="0 0 36 36">
+          <g
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.4"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M2 27 12 9l5 8 5-12 12 22H2Z M7 27l6-11 5 7 5-11 8 15 M11 27l3-5 4 5 6-9 5 9 M2 31h32"
+            />
+          </g>
+        </symbol>
+        <symbol id="book" viewBox="0 0 24 24">
+          <path d="M3 5q5-2 9 1 4-3 9-1v14q-5-2-9 1-4-3-9-1zM12 6v14" />
+        </symbol>
+        <symbol id="expand" viewBox="0 0 24 24">
+          <path d="M4 9V4h5m6 0h5v5m0 6v5h-5m-6 0H4v-5" />
+        </symbol>
+        <symbol id="camera" viewBox="0 0 24 24">
+          <path d="M3 7h4l2-3h6l2 3h4v13H3z" />
+          <circle cx="12" cy="13" r="3.5" />
+        </symbol>
+        <symbol id="reset" viewBox="0 0 24 24">
+          <path d="M4 10a8 8 0 1 1 1 7M4 4v6h6" />
+        </symbol>
+        <symbol id="pin" viewBox="0 0 24 24">
+          <path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z" />
+          <circle cx="12" cy="10" r="2" />
+        </symbol>
+        <symbol id="orbit" viewBox="0 0 24 24">
+          <ellipse
+            cx="12"
+            cy="12"
+            rx="10"
+            ry="5"
+            transform="rotate(-28 12 12)"
+          />
+          <circle cx="12" cy="12" r="2" />
+        </symbol>
+        <symbol id="sun" viewBox="0 0 24 24">
+          <path
+            d="M3 17h18M6 20h12M7 14a5 5 0 0 1 10 0M12 2v3M3 8l3 2M21 8l-3 2"
+          />
+        </symbol>
+        <symbol id="close" viewBox="0 0 24 24">
+          <path d="m6 6 12 12m0-12L6 18" />
+        </symbol>
+      </defs>
+    </svg>
+    <header>
+      <div class="navwrap">
+        <div class="brand">
+          <svg><use href="#atlas" /></svg>Fauna Atlas
+        </div>
+        <span class="brand-sub mono">Natural history series</span>
+        <nav>
+          <span class="nav-active">Observatory</span
+          ><button id="journal">
+            <svg><use href="#book" /></svg>Field notes
+          </button>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="intro">
+        <div>
+          <div class="eyebrow">
+            <span class="rule"></span>Species observatory <b>/</b> Plate 001
+          </div>
+          <h1>Reticulated giraffe<span>.</span></h1>
+          <div class="taxon">
+            <i>Giraffa reticulata</i><span></span>Mammalia <b>/</b> Giraffidae
+          </div>
+        </div>
+        <div class="location">
+          <svg><use href="#pin" /></svg>
+          <div>
+            <div class="smallcap">Habitat region</div>
+            <strong>East Africa</strong>
+          </div>
+        </div>
+      </section>
+      <section
+        class="viewer"
+        id="viewer"
+        aria-label="Interactive giraffe observatory"
+      >
+        <div class="stage" id="stage">
+          <canvas
+            id="scene"
+            tabindex="0"
+            aria-label="Animated reticulated giraffe. Drag to orbit, scroll or pinch to zoom; arrow keys rotate the view."
+          ></canvas>
+          <div class="vignette"></div>
+          <div class="hud top-left">
+            <span class="feed"><em></em>Field feed</span
+            ><span class="camid">CAM — 01</span>
+          </div>
+          <div class="hud top-right">
+            <svg><use href="#sun" /></svg>Golden hour
+          </div>
+          <div class="hud bottom-left">
+            <span class="cross">✛</span><span id="timestamp">T+ 00:00:00</span>
+          </div>
+          <div class="hud bottom-right">
+            <svg><use href="#orbit" /></svg>Drag to orbit <b>·</b>
+            <span class="wheel-hint">Scroll to zoom</span
+            ><span class="touch-hint">Pinch to zoom</span>
+          </div>
+          <p id="loading">Preparing field camera…</p>
+        </div>
+        <div class="controls">
+          <div class="transport">
+            <button
+              class="play"
+              id="play"
+              aria-label="Pause walk"
+              title="Pause walk (Space)"
+            >
+              <span id="playIcon">Ⅱ</span>
+            </button>
+            <div>
+              <div class="smallcap">Locomotion</div>
+              <strong id="state">Walking</strong>
+            </div>
+          </div>
+          <div class="speed">
+            <span class="smallcap">Speed</span>
+            <div class="segments" role="group" aria-label="Walking speed">
+              <button data-speed="0.5" aria-pressed="false">0.5×</button
+              ><button class="active" data-speed="1" aria-pressed="true">
+                1×</button
+              ><button data-speed="1.5" aria-pressed="false">1.5×</button>
+            </div>
+          </div>
+          <div class="camera">
+            <div class="select">
+              <svg><use href="#camera" /></svg
+              ><select id="view" aria-label="Camera view">
+                <option value="tracking">Tracking view</option>
+                <option value="portrait">Portrait view</option>
+                <option value="wide">Habitat view</option></select
+              ><span>⌄</span>
+            </div>
+            <button
+              class="iconbtn"
+              id="resetCam"
+              aria-label="Reset camera"
+              title="Reset camera (R)"
+            >
+              <svg><use href="#reset" /></svg></button
+            ><button
+              class="iconbtn"
+              id="fullscreen"
+              aria-label="Toggle fullscreen viewer"
+              title="Fullscreen"
+            >
+              <svg><use href="#expand" /></svg>
+            </button>
+          </div>
+        </div>
+      </section>
+      <section class="specs" aria-label="Species summary">
+        <div>
+          <div class="smallcap"><span>01 /</span> Classification</div>
+          <strong>Large herbivore</strong>
+        </div>
+        <div>
+          <div class="smallcap"><span>02 /</span> Adult height</div>
+          <strong>4.3–5.7 <i>m</i></strong>
+        </div>
+        <div>
+          <div class="smallcap"><span>03 /</span> Habitat</div>
+          <strong>Open savanna</strong>
+        </div>
+        <div>
+          <div class="smallcap"><span>04 /</span> Gait pattern</div>
+          <strong>Lateral walk</strong>
+        </div>
+      </section>
+      <footer>
+        <span>Fauna Atlas <b>/</b> Interactive field studies</span
+        ><span>Series 01 <b>·</b> Specimen 001</span>
+      </footer>
+    </main>
+    <dialog id="notes" aria-labelledby="notes-title">
+      <button class="iconbtn close" aria-label="Close field notes">
+        <svg><use href="#close" /></svg>
+      </button>
+      <div class="eyebrow"><span class="rule"></span>Field notes / 001</div>
+      <h2 id="notes-title">Reading the walk<span>.</span></h2>
+      <i>Giraffa reticulata</i>
+      <p>
+        Watch the hooves on one side. The hind foot lifts first, followed
+        closely by the forefoot on the same side. The opposite pair follows half
+        a stride later.
+      </p>
+      <p>
+        The long neck rocks gently as weight shifts between the supporting
+        limbs. At half speed, follow a single dark hoof through its planted
+        stance and forward swing.
+      </p>
+      <div class="note-end">
+        <span class="smallcap">Identification</span>
+        <p>
+          A network of pale lines separates the chestnut coat patches. The
+          paired, skin-covered projections on the head are called ossicones.
+        </p>
+      </div>
+      <details class="credits">
+        <summary>Image &amp; software credits</summary>
+        <p>
+          Facial details adapted from
+          <a
+            href="https://commons.wikimedia.org/wiki/File:South_African_giraffe_(Giraffa_camelopardalis_giraffa)_head_with_oxpecker_Kruger.jpg"
+            target="_blank"
+            rel="noreferrer"
+            >Charles J. Sharp’s photograph</a
+          >
+          (<a
+            href="https://creativecommons.org/licenses/by-sa/4.0/"
+            target="_blank"
+            rel="noreferrer"
+            >CC BY-SA 4.0</a
+          >). Umbrella thorn cutout adapted from
+          <a
+            href="https://commons.wikimedia.org/wiki/File:Vachellia_(ex_Acacia)_tortilis.jpg"
+            target="_blank"
+            rel="noreferrer"
+            >Robur.q’s photograph</a
+          >
+          (<a
+            href="https://creativecommons.org/licenses/by-sa/3.0/"
+            target="_blank"
+            rel="noreferrer"
+            >CC BY-SA 3.0</a
+          >). Adapted textures retain their respective licenses.
+        </p>
+        <p>
+          Landscape and ground materials: Poly Haven (CC0). Rendering: Three.js
+          (MIT). Full source list: <code>CREDITS.md</code>.
+        </p>
+      </details>
+    </dialog>
+    <script src="vendor/three.min.js"></script>
+    <script src="assets/panorama.js"></script>
+    <script src="assets/terrain.js"></script>
+    <script src="assets/veld.js"></script>
+    <script src="assets/straw.js"></script>
+    <script src="assets/facial-detail.js"></script>
+    <script src="assets/skin.js"></script>
+    <script src="skin-rig.js"></script>
+    <script src="animal.js"></script>
+    <script src="habitat.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
